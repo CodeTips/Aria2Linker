@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  Aria2Linker
+
+  Created by 输入密码引爆电脑 on 2020/7/15.
+  Copyright © 2020 CodeTips. All rights reserved.
+*/
+CFBundleName="Aria2Linker";

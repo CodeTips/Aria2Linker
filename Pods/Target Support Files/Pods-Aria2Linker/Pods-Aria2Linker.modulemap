@@ -1,0 +1,6 @@
+framework module Pods_Aria2Linker {
+  umbrella header "Pods-Aria2Linker-umbrella.h"
+
+  export *
+  module * { export * }
+}
