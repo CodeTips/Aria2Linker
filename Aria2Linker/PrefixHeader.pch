@@ -110,7 +110,7 @@
 // 紫色(浅)
 #define ymColorPinkLight [UIColor colorWithHexString:@"0xddd9fa"]
 // 灰色(深)
-#define ymColorGrayDark [UIColor colorWithHexString:@"0x666666"]
+#define ymColorGrayDark [UIColor colorWithHexString:@"0x434343"]
 // 灰色(浅)
 #define ymColorGrayLight [UIColor colorWithHexString:@"0x999999"]
 // 可忽略的颜色
