@@ -1,6 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-Aria2Linker/Pods-Aria2Linker-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
-${BUILT_PRODUCTS_DIR}/CustomPopOverView/CustomPopOverView.framework
 ${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
 ${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
 ${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework

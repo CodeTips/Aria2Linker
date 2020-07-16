@@ -35,6 +35,11 @@
 		AEBD6FE424C0382000F694BB /* ALFileDownloadViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBD6FE324C0382000F694BB /* ALFileDownloadViewCell.m */; };
 		AEBD6FE724C039DE00F694BB /* ALJsonrpcServerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBD6FE624C039DE00F694BB /* ALJsonrpcServerViewCell.m */; };
 		AEBD6FFD24C0503B00F694BB /* ALActiveListController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBD6FFC24C0503B00F694BB /* ALActiveListController.m */; };
+		AEBD700024C05A5E00F694BB /* ALPopMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBD6FFF24C05A5E00F694BB /* ALPopMenuController.m */; };
+		AEBD700324C06BB900F694BB /* ALPopMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBD700224C06BB900F694BB /* ALPopMenuItem.m */; };
+		AEBD700624C07C8C00F694BB /* ALAddServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBD700524C07C8C00F694BB /* ALAddServerController.m */; };
+		AEBD700924C082F100F694BB /* UIView+FrameLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBD700824C082F100F694BB /* UIView+FrameLayout.m */; };
+		AEBD700C24C084E600F694BB /* ALTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBD700B24C084E600F694BB /* ALTextField.m */; };
 		F7CC0464CC96D17C5922EB8E /* Pods_Aria2Linker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04236CB2D29A346F1B15CC52 /* Pods_Aria2Linker.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +116,16 @@
 		AEBD6FE624C039DE00F694BB /* ALJsonrpcServerViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALJsonrpcServerViewCell.m; sourceTree = "<group>"; };
 		AEBD6FFB24C0503B00F694BB /* ALActiveListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALActiveListController.h; sourceTree = "<group>"; };
 		AEBD6FFC24C0503B00F694BB /* ALActiveListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALActiveListController.m; sourceTree = "<group>"; };
+		AEBD6FFE24C05A5E00F694BB /* ALPopMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALPopMenuController.h; sourceTree = "<group>"; };
+		AEBD6FFF24C05A5E00F694BB /* ALPopMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALPopMenuController.m; sourceTree = "<group>"; };
+		AEBD700124C06BB900F694BB /* ALPopMenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALPopMenuItem.h; sourceTree = "<group>"; };
+		AEBD700224C06BB900F694BB /* ALPopMenuItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALPopMenuItem.m; sourceTree = "<group>"; };
+		AEBD700424C07C8B00F694BB /* ALAddServerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALAddServerController.h; sourceTree = "<group>"; };
+		AEBD700524C07C8C00F694BB /* ALAddServerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALAddServerController.m; sourceTree = "<group>"; };
+		AEBD700724C082F100F694BB /* UIView+FrameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameLayout.h"; sourceTree = "<group>"; };
+		AEBD700824C082F100F694BB /* UIView+FrameLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameLayout.m"; sourceTree = "<group>"; };
+		AEBD700A24C084E600F694BB /* ALTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALTextField.h; sourceTree = "<group>"; };
+		AEBD700B24C084E600F694BB /* ALTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +214,8 @@
 		AEA8ED5F24BD49EB00CF98F9 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				AEBD700724C082F100F694BB /* UIView+FrameLayout.h */,
+				AEBD700824C082F100F694BB /* UIView+FrameLayout.m */,
 				AEA8ED5A24BD49DC00CF98F9 /* UIButton+Bootstrap.h */,
 				AEA8ED5B24BD49DC00CF98F9 /* UIButton+Bootstrap.m */,
 				AEA8ED5624BD49DB00CF98F9 /* UIColor+expanded.h */,
@@ -237,6 +254,10 @@
 				AEA8ED7124BD4A3800CF98F9 /* StopListViewController.m */,
 				AEBD6FFB24C0503B00F694BB /* ALActiveListController.h */,
 				AEBD6FFC24C0503B00F694BB /* ALActiveListController.m */,
+				AEBD6FFE24C05A5E00F694BB /* ALPopMenuController.h */,
+				AEBD6FFF24C05A5E00F694BB /* ALPopMenuController.m */,
+				AEBD700424C07C8B00F694BB /* ALAddServerController.h */,
+				AEBD700524C07C8C00F694BB /* ALAddServerController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,6 +273,8 @@
 				AEBD6FE624C039DE00F694BB /* ALJsonrpcServerViewCell.m */,
 				AEA8ED8024BD4A7300CF98F9 /* LeftRightArrowCell.h */,
 				AEA8ED8324BD4A7300CF98F9 /* LeftRightArrowCell.m */,
+				AEBD700A24C084E600F694BB /* ALTextField.h */,
+				AEBD700B24C084E600F694BB /* ALTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -263,6 +286,8 @@
 				AEA8ED8C24BD4A8F00CF98F9 /* JsonrpcServer.m */,
 				AEA8ED8A24BD4A8E00CF98F9 /* Result.h */,
 				AEA8ED8D24BD4A8F00CF98F9 /* Result.m */,
+				AEBD700124C06BB900F694BB /* ALPopMenuItem.h */,
+				AEBD700224C06BB900F694BB /* ALPopMenuItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -402,10 +427,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEBD700C24C084E600F694BB /* ALTextField.m in Sources */,
 				AEA8ED5424BD49AA00CF98F9 /* BaseNavigationController.m in Sources */,
 				AEBD6FE424C0382000F694BB /* ALFileDownloadViewCell.m in Sources */,
+				AEBD700324C06BB900F694BB /* ALPopMenuItem.m in Sources */,
+				AEBD700624C07C8C00F694BB /* ALAddServerController.m in Sources */,
 				AEA8ED6E24BD4A0D00CF98F9 /* NetUtils.m in Sources */,
 				AEA8ED6D24BD4A0D00CF98F9 /* APIUtils.m in Sources */,
+				AEBD700924C082F100F694BB /* UIView+FrameLayout.m in Sources */,
 				AEA8ED8E24BD4A8F00CF98F9 /* JsonrpcServer.m in Sources */,
 				AE3D02AF2472780600387263 /* AppDelegate.m in Sources */,
 				AEA8ED5E24BD49DC00CF98F9 /* UIButton+Bootstrap.m in Sources */,
@@ -416,6 +445,7 @@
 				AEA8ED5D24BD49DC00CF98F9 /* UIColor+expanded.m in Sources */,
 				AEA8ED5324BD49AA00CF98F9 /* BaseViewController.m in Sources */,
 				AEA8ED7A24BD4A3800CF98F9 /* ActiveListViewController.m in Sources */,
+				AEBD700024C05A5E00F694BB /* ALPopMenuController.m in Sources */,
 				AEA8ED6C24BD4A0D00CF98F9 /* CommonUtils.m in Sources */,
 				AEA8ED6A24BD4A0D00CF98F9 /* MsgUtils.m in Sources */,
 				AEBD6FFD24C0503B00F694BB /* ALActiveListController.m in Sources */,

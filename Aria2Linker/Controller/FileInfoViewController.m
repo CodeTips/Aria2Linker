@@ -45,8 +45,6 @@ typedef NS_ENUM(NSInteger, FileInfoVCCell) {
         [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view);
         }];
-        //        tableView.mj_header = [MJRefreshStateHeader headerWithRefreshingTarget:self
-        //        refreshingAction:@selector(fresh)];
         tableView;
     });
     if (!_taskInfo) {

@@ -7,10 +7,13 @@
 //
 
 #import "BaseViewController.h"
+#import "JsonrpcServer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ALActiveListController : BaseViewController
+
+@property (strong, nonatomic) JsonrpcServer *jsonrpcServer;
 
 @end
 
