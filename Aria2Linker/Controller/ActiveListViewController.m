@@ -9,7 +9,7 @@
 #import "ActiveListViewController.h"
 #import "TPKeyboardAvoidingTableView.h"
 #import "APIUtils.h"
-#import "FileCell.h"
+#import "ALFileDownloadViewCell.h"
 #import "UIView+TYAlertView.h"
 #import "ButtonCell.h"
 #import "StopListViewController.h"
@@ -63,7 +63,7 @@
         [self.view addSubview:tableView];
 
         tableView.backgroundColor = ymBackgroudColor;
-        [tableView registerClass:[FileCell class] forCellReuseIdentifier:@"FileCellText"];
+        [tableView registerClass:[ALFileDownloadViewCell class] forCellReuseIdentifier:@"FileCellText"];
         [tableView registerClass:[ButtonCell class] forCellReuseIdentifier:@"ButtonCellText"];
         [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view);
@@ -115,10 +115,10 @@
         }
         return _stopBtn;
     } else {
-        FileCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FileCellText"];
+        ALFileDownloadViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FileCellText"];
         // 不写这句直接崩掉，找不到循环引用的cell
         if (cell == nil) {
-            cell = [[FileCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FileCellText"];
+            cell = [[ALFileDownloadViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FileCellText"];
         }
         TaskInfo *act = _list[indexPath.row];
         cell.active = act;

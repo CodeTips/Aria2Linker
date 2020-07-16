@@ -15,6 +15,7 @@ def shared_pods
     pod 'YLProgressBar', '~> 3.11.0'
     pod 'TYAlertController'
     pod 'MJRefresh'
+    pod 'CustomPopOverView'
 end
 
 target 'Aria2Linker' do

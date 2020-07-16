@@ -29,11 +29,12 @@
 		AEA8ED7A24BD4A3800CF98F9 /* ActiveListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED7424BD4A3800CF98F9 /* ActiveListViewController.m */; };
 		AEA8ED7B24BD4A3800CF98F9 /* FileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED7724BD4A3800CF98F9 /* FileInfoViewController.m */; };
 		AEA8ED8524BD4A7300CF98F9 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED7E24BD4A7200CF98F9 /* ButtonCell.m */; };
-		AEA8ED8624BD4A7300CF98F9 /* JsonrpcServerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED8124BD4A7300CF98F9 /* JsonrpcServerCell.m */; };
 		AEA8ED8724BD4A7300CF98F9 /* LeftRightArrowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED8324BD4A7300CF98F9 /* LeftRightArrowCell.m */; };
-		AEA8ED8824BD4A7300CF98F9 /* FileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED8424BD4A7300CF98F9 /* FileCell.m */; };
 		AEA8ED8E24BD4A8F00CF98F9 /* JsonrpcServer.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED8C24BD4A8F00CF98F9 /* JsonrpcServer.m */; };
 		AEA8ED8F24BD4A8F00CF98F9 /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED8D24BD4A8F00CF98F9 /* Result.m */; };
+		AEBD6FE424C0382000F694BB /* ALFileDownloadViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBD6FE324C0382000F694BB /* ALFileDownloadViewCell.m */; };
+		AEBD6FE724C039DE00F694BB /* ALJsonrpcServerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBD6FE624C039DE00F694BB /* ALJsonrpcServerViewCell.m */; };
+		AEBD6FFD24C0503B00F694BB /* ALActiveListController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBD6FFC24C0503B00F694BB /* ALActiveListController.m */; };
 		F7CC0464CC96D17C5922EB8E /* Pods_Aria2Linker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04236CB2D29A346F1B15CC52 /* Pods_Aria2Linker.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,19 +96,21 @@
 		AEA8ED7524BD4A3800CF98F9 /* ServersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServersViewController.h; sourceTree = "<group>"; };
 		AEA8ED7624BD4A3800CF98F9 /* ActiveListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveListViewController.h; sourceTree = "<group>"; };
 		AEA8ED7724BD4A3800CF98F9 /* FileInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileInfoViewController.m; sourceTree = "<group>"; };
-		AEA8ED7D24BD4A7200CF98F9 /* FileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCell.h; sourceTree = "<group>"; };
 		AEA8ED7E24BD4A7200CF98F9 /* ButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
-		AEA8ED7F24BD4A7200CF98F9 /* JsonrpcServerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonrpcServerCell.h; sourceTree = "<group>"; };
 		AEA8ED8024BD4A7300CF98F9 /* LeftRightArrowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftRightArrowCell.h; sourceTree = "<group>"; };
-		AEA8ED8124BD4A7300CF98F9 /* JsonrpcServerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonrpcServerCell.m; sourceTree = "<group>"; };
 		AEA8ED8224BD4A7300CF98F9 /* ButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
 		AEA8ED8324BD4A7300CF98F9 /* LeftRightArrowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftRightArrowCell.m; sourceTree = "<group>"; };
-		AEA8ED8424BD4A7300CF98F9 /* FileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCell.m; sourceTree = "<group>"; };
 		AEA8ED8A24BD4A8E00CF98F9 /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
 		AEA8ED8B24BD4A8F00CF98F9 /* JsonrpcServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonrpcServer.h; sourceTree = "<group>"; };
 		AEA8ED8C24BD4A8F00CF98F9 /* JsonrpcServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonrpcServer.m; sourceTree = "<group>"; };
 		AEA8ED8D24BD4A8F00CF98F9 /* Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
 		AEA8ED9124BD4B8F00CF98F9 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		AEBD6FE224C0382000F694BB /* ALFileDownloadViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALFileDownloadViewCell.h; sourceTree = "<group>"; };
+		AEBD6FE324C0382000F694BB /* ALFileDownloadViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALFileDownloadViewCell.m; sourceTree = "<group>"; };
+		AEBD6FE524C039DE00F694BB /* ALJsonrpcServerViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALJsonrpcServerViewCell.h; sourceTree = "<group>"; };
+		AEBD6FE624C039DE00F694BB /* ALJsonrpcServerViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALJsonrpcServerViewCell.m; sourceTree = "<group>"; };
+		AEBD6FFB24C0503B00F694BB /* ALActiveListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALActiveListController.h; sourceTree = "<group>"; };
+		AEBD6FFC24C0503B00F694BB /* ALActiveListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALActiveListController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +235,8 @@
 				AEA8ED7224BD4A3800CF98F9 /* ServersViewController.m */,
 				AEA8ED7324BD4A3800CF98F9 /* StopListViewController.h */,
 				AEA8ED7124BD4A3800CF98F9 /* StopListViewController.m */,
+				AEBD6FFB24C0503B00F694BB /* ALActiveListController.h */,
+				AEBD6FFC24C0503B00F694BB /* ALActiveListController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -241,10 +246,10 @@
 			children = (
 				AEA8ED8224BD4A7300CF98F9 /* ButtonCell.h */,
 				AEA8ED7E24BD4A7200CF98F9 /* ButtonCell.m */,
-				AEA8ED7D24BD4A7200CF98F9 /* FileCell.h */,
-				AEA8ED8424BD4A7300CF98F9 /* FileCell.m */,
-				AEA8ED7F24BD4A7200CF98F9 /* JsonrpcServerCell.h */,
-				AEA8ED8124BD4A7300CF98F9 /* JsonrpcServerCell.m */,
+				AEBD6FE224C0382000F694BB /* ALFileDownloadViewCell.h */,
+				AEBD6FE324C0382000F694BB /* ALFileDownloadViewCell.m */,
+				AEBD6FE524C039DE00F694BB /* ALJsonrpcServerViewCell.h */,
+				AEBD6FE624C039DE00F694BB /* ALJsonrpcServerViewCell.m */,
 				AEA8ED8024BD4A7300CF98F9 /* LeftRightArrowCell.h */,
 				AEA8ED8324BD4A7300CF98F9 /* LeftRightArrowCell.m */,
 			);
@@ -398,13 +403,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEA8ED5424BD49AA00CF98F9 /* BaseNavigationController.m in Sources */,
+				AEBD6FE424C0382000F694BB /* ALFileDownloadViewCell.m in Sources */,
 				AEA8ED6E24BD4A0D00CF98F9 /* NetUtils.m in Sources */,
 				AEA8ED6D24BD4A0D00CF98F9 /* APIUtils.m in Sources */,
 				AEA8ED8E24BD4A8F00CF98F9 /* JsonrpcServer.m in Sources */,
 				AE3D02AF2472780600387263 /* AppDelegate.m in Sources */,
 				AEA8ED5E24BD49DC00CF98F9 /* UIButton+Bootstrap.m in Sources */,
+				AEBD6FE724C039DE00F694BB /* ALJsonrpcServerViewCell.m in Sources */,
 				AEA8ED8F24BD4A8F00CF98F9 /* Result.m in Sources */,
-				AEA8ED8824BD4A7300CF98F9 /* FileCell.m in Sources */,
 				AEA8ED6B24BD4A0D00CF98F9 /* LocalCacheUtils.m in Sources */,
 				AEA8ED8724BD4A7300CF98F9 /* LeftRightArrowCell.m in Sources */,
 				AEA8ED5D24BD49DC00CF98F9 /* UIColor+expanded.m in Sources */,
@@ -412,8 +418,8 @@
 				AEA8ED7A24BD4A3800CF98F9 /* ActiveListViewController.m in Sources */,
 				AEA8ED6C24BD4A0D00CF98F9 /* CommonUtils.m in Sources */,
 				AEA8ED6A24BD4A0D00CF98F9 /* MsgUtils.m in Sources */,
+				AEBD6FFD24C0503B00F694BB /* ALActiveListController.m in Sources */,
 				AEA8ED7824BD4A3800CF98F9 /* StopListViewController.m in Sources */,
-				AEA8ED8624BD4A7300CF98F9 /* JsonrpcServerCell.m in Sources */,
 				AEA8ED7924BD4A3800CF98F9 /* ServersViewController.m in Sources */,
 				AE3D02C02472780600387263 /* main.m in Sources */,
 				AEA8ED7B24BD4A3800CF98F9 /* FileInfoViewController.m in Sources */,

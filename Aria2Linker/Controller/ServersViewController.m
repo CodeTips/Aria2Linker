@@ -12,7 +12,7 @@
 #import "APIUtils.h"
 #import "ActiveListViewController.h"
 #import "StopListViewController.h"
-#import "JsonrpcServerCell.h"
+#import "ALJsonrpcServerViewCell.h"
 #import "LocalCacheUtils.h"
 #import "UIView+TYAlertView.h"
 #import "MJRefreshStateHeader.h"
@@ -44,7 +44,7 @@
         [self.view addSubview:tableView];
 
         tableView.mj_header = [MJRefreshStateHeader headerWithRefreshingTarget:self refreshingAction:@selector(fresh)];
-        [tableView registerClass:[JsonrpcServerCell class] forCellReuseIdentifier:@"JsonrpcServerCellText"];
+        [tableView registerClass:[ALJsonrpcServerViewCell class] forCellReuseIdentifier:@"JsonrpcServerCellText"];
         tableView.backgroundColor = ymBackgroudColor;
         [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view);
@@ -75,9 +75,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self isServerCell:indexPath.row]) {
-        JsonrpcServerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JsonrpcServerCellText"];
+        ALJsonrpcServerViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JsonrpcServerCellText"];
         if (cell == nil) {
-            cell = [[JsonrpcServerCell alloc] initWithStyle:UITableViewCellStyleDefault
+            cell = [[ALJsonrpcServerViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                             reuseIdentifier:@"JsonrpcServerCellText"];
         }
         JsonrpcServer *jrs = _list[indexPath.row];

@@ -1,18 +1,20 @@
 //
-//  JsonrpcServerCell.m
-//  Aria2-client-iOS
+//  ALJsonrpcServerViewCell.m
+//  Aria2Linker
 //
-//  Created by zj14 on 2019/2/24.
-//  Copyright © 2019 郑珏. All rights reserved.
+//  Created by 输入密码引爆电脑 on 2020/7/16.
+//  Copyright © 2020 CodeTips. All rights reserved.
 //
 
-#import "JsonrpcServerCell.h"
+#import "ALJsonrpcServerViewCell.h"
 
-@interface JsonrpcServerCell ()
+@interface ALJsonrpcServerViewCell ()
+
 @property (strong, nonatomic) UILabel *nameT, *uriT, *statT, *speedT;
+
 @end
 
-@implementation JsonrpcServerCell
+@implementation ALJsonrpcServerViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -105,5 +107,6 @@
     _statT.text = @"服务器状态获取失败，刷新试试";
     _speedT.text = @" ";
 }
+
 
 @end

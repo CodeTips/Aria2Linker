@@ -1,20 +1,23 @@
 //
-//  FileCell.m
-//  Aria2
+//  ALFileDownloadViewCell.m
+//  Aria2Linker
 //
-//  Created by zj14 on 2019/2/23.
-//  Copyright © 2019 郑珏. All rights reserved.
+//  Created by 输入密码引爆电脑 on 2020/7/16.
+//  Copyright © 2020 CodeTips. All rights reserved.
 //
 
-#import "FileCell.h"
+#import "ALFileDownloadViewCell.h"
 #import "YLProgressBar.h"
 
-@interface FileCell ()
+@interface ALFileDownloadViewCell ()
+
 @property (strong, nonatomic) UILabel *nameT, *sizeT, *remainingT, *speedT;
 @property (strong, nonatomic) YLProgressBar *processView;
+
 @end
 
-@implementation FileCell
+@implementation ALFileDownloadViewCell
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -51,14 +54,14 @@
             _processView.progress = 0;
             [self.contentView addSubview:_processView];
             _processView.trackTintColor = ymColorBlueDark;
-            _processView.type = YLProgressBarTypeFlat;
-            _processView.indicatorTextDisplayMode = YLProgressBarIndicatorTextDisplayModeFixedRight;
+            _processView.type = YLProgressBarTypeRounded;
+//            _processView.indicatorTextDisplayMode = YLProgressBarIndicatorTextDisplayModeFixedRight;
             _processView.behavior = YLProgressBarBehaviorIndeterminate;
             _processView.stripesOrientation = YLProgressBarStripesOrientationVertical;
             [_processView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.right.equalTo(_nameT);
                 make.top.equalTo(_sizeT.mas_bottom).offset(ymScreen_top_padding);
-                make.height.equalTo(@30);
+                make.height.equalTo(@6);
             }];
         }
 

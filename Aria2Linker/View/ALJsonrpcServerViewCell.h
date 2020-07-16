@@ -1,9 +1,9 @@
 //
-//  JsonrpcServerCell.h
-//  Aria2-client-iOS
+//  ALJsonrpcServerViewCell.h
+//  Aria2Linker
 //
-//  Created by zj14 on 2019/2/24.
-//  Copyright © 2019 郑珏. All rights reserved.
+//  Created by 输入密码引爆电脑 on 2020/7/16.
+//  Copyright © 2020 CodeTips. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -12,10 +12,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JsonrpcServerCell : UITableViewCell
+@interface ALJsonrpcServerViewCell : UITableViewCell
+
 @property (strong, nonatomic) JsonrpcServer *jsonrpcServer;
 @property (strong, nonatomic) GlobalStatus *stat;
 - (void)setOfflineStat;
+
 @end
 
 NS_ASSUME_NONNULL_END

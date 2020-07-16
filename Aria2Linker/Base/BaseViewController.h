@@ -16,8 +16,6 @@
  * 跳转新页面
  */
 - (void)gotoVC:(UIViewController *)VC;
-
-- (void)gotoVCWithStoryboard:(NSString *)SBName andIdentifier:(NSString *)identifier;
 /**
  * 返回
  */

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import <HolmesWithIDFA/Holmes.h>
-#import "ServersViewController.h"
+#import "ALActiveListController.h"
 #import "BaseNavigationController.h"
 
 @interface AppDelegate ()
@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    ServersViewController *vc = [[ServersViewController alloc] init];
+    ALActiveListController *vc = [[ALActiveListController alloc] init];
     UINavigationController *navOverView = [[BaseNavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navOverView;
     [self.window makeKeyAndVisible];
