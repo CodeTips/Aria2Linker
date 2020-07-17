@@ -19,7 +19,7 @@
 #import "UIView+TYAlertView.h"
 #import "ALServersController.h"
 #import "ALStopListController.h"
-
+#import "ALAboutViewController.h"
 
 @interface ALActiveListController ()<
 UIPopoverPresentationControllerDelegate,
@@ -125,7 +125,8 @@ ALServersControllerDelegate
         }
             break;
         case ALPopMenuItemActionAbout:{
-            
+            ALAboutViewController *aboutController = [ALAboutViewController new];
+            [self.navigationController pushViewController:aboutController animated:YES];
         }
             break;
     }
@@ -181,7 +182,6 @@ ALServersControllerDelegate
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        _tableView.estimatedRowHeight = 67;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.view addSubview:_tableView];
 

@@ -15,6 +15,8 @@
 		AE696FDA24BC7114004723DA /* HolmesWithIDFA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE696FD724BC7077004723DA /* HolmesWithIDFA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE7277E324C195B6006020A7 /* ALServersController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7277E224C195B6006020A7 /* ALServersController.m */; };
 		AE7277E624C1962C006020A7 /* ALStopListController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7277E524C1962C006020A7 /* ALStopListController.m */; };
+		AE7277E924C1B31C006020A7 /* ALAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7277E824C1B31C006020A7 /* ALAboutViewController.m */; };
+		AE7277EF24C1BC7D006020A7 /* ALFileListController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7277EE24C1BC7D006020A7 /* ALFileListController.m */; };
 		AE802F4624BEDE8F002668EB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE802F4824BEDE8F002668EB /* Localizable.strings */; };
 		AE802F4C24BEDEE5002668EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE802F4E24BEDEE5002668EB /* InfoPlist.strings */; };
 		AEA8ED5324BD49AA00CF98F9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED4F24BD49AA00CF98F9 /* BaseViewController.m */; };
@@ -74,6 +76,10 @@
 		AE7277E224C195B6006020A7 /* ALServersController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALServersController.m; sourceTree = "<group>"; };
 		AE7277E424C1962C006020A7 /* ALStopListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALStopListController.h; sourceTree = "<group>"; };
 		AE7277E524C1962C006020A7 /* ALStopListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALStopListController.m; sourceTree = "<group>"; };
+		AE7277E724C1B31C006020A7 /* ALAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALAboutViewController.h; sourceTree = "<group>"; };
+		AE7277E824C1B31C006020A7 /* ALAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALAboutViewController.m; sourceTree = "<group>"; };
+		AE7277ED24C1BC7D006020A7 /* ALFileListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALFileListController.h; sourceTree = "<group>"; };
+		AE7277EE24C1BC7D006020A7 /* ALFileListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALFileListController.m; sourceTree = "<group>"; };
 		AE802F4324BEDE41002668EB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		AE802F4724BEDE8F002668EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AE802F4924BEDE96002668EB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -250,6 +256,8 @@
 				AEA8ED7124BD4A3800CF98F9 /* StopListViewController.m */,
 				AEBD6FFB24C0503B00F694BB /* ALActiveListController.h */,
 				AEBD6FFC24C0503B00F694BB /* ALActiveListController.m */,
+				AE7277ED24C1BC7D006020A7 /* ALFileListController.h */,
+				AE7277EE24C1BC7D006020A7 /* ALFileListController.m */,
 				AEBD6FFE24C05A5E00F694BB /* ALPopMenuController.h */,
 				AEBD6FFF24C05A5E00F694BB /* ALPopMenuController.m */,
 				AEBD700424C07C8B00F694BB /* ALAddServerController.h */,
@@ -258,6 +266,8 @@
 				AE7277E224C195B6006020A7 /* ALServersController.m */,
 				AE7277E424C1962C006020A7 /* ALStopListController.h */,
 				AE7277E524C1962C006020A7 /* ALStopListController.m */,
+				AE7277E724C1B31C006020A7 /* ALAboutViewController.h */,
+				AE7277E824C1B31C006020A7 /* ALAboutViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -432,10 +442,12 @@
 				AEBD6FE424C0382000F694BB /* ALFileDownloadViewCell.m in Sources */,
 				AEBD700324C06BB900F694BB /* ALPopMenuItem.m in Sources */,
 				AEBD700624C07C8C00F694BB /* ALAddServerController.m in Sources */,
+				AE7277EF24C1BC7D006020A7 /* ALFileListController.m in Sources */,
 				AEA8ED6E24BD4A0D00CF98F9 /* NetUtils.m in Sources */,
 				AEA8ED6D24BD4A0D00CF98F9 /* APIUtils.m in Sources */,
 				AEBD700924C082F100F694BB /* UIView+FrameLayout.m in Sources */,
 				AE7277E624C1962C006020A7 /* ALStopListController.m in Sources */,
+				AE7277E924C1B31C006020A7 /* ALAboutViewController.m in Sources */,
 				AEA8ED8E24BD4A8F00CF98F9 /* JsonrpcServer.m in Sources */,
 				AE3D02AF2472780600387263 /* AppDelegate.m in Sources */,
 				AEA8ED5E24BD49DC00CF98F9 /* UIButton+Bootstrap.m in Sources */,
