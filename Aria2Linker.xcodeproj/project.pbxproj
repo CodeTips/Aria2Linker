@@ -28,7 +28,6 @@
 		AEA8ED6C24BD4A0D00CF98F9 /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED6624BD4A0C00CF98F9 /* CommonUtils.m */; };
 		AEA8ED6D24BD4A0D00CF98F9 /* APIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED6724BD4A0C00CF98F9 /* APIUtils.m */; };
 		AEA8ED6E24BD4A0D00CF98F9 /* NetUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED6924BD4A0C00CF98F9 /* NetUtils.m */; };
-		AEA8ED7824BD4A3800CF98F9 /* StopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED7124BD4A3800CF98F9 /* StopListViewController.m */; };
 		AEA8ED7B24BD4A3800CF98F9 /* FileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED7724BD4A3800CF98F9 /* FileInfoViewController.m */; };
 		AEA8ED8524BD4A7300CF98F9 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED7E24BD4A7200CF98F9 /* ButtonCell.m */; };
 		AEA8ED8724BD4A7300CF98F9 /* LeftRightArrowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED8324BD4A7300CF98F9 /* LeftRightArrowCell.m */; };
@@ -104,8 +103,6 @@
 		AEA8ED6824BD4A0C00CF98F9 /* NetUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetUtils.h; sourceTree = "<group>"; };
 		AEA8ED6924BD4A0C00CF98F9 /* NetUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetUtils.m; sourceTree = "<group>"; };
 		AEA8ED7024BD4A3800CF98F9 /* FileInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileInfoViewController.h; sourceTree = "<group>"; };
-		AEA8ED7124BD4A3800CF98F9 /* StopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopListViewController.m; sourceTree = "<group>"; };
-		AEA8ED7324BD4A3800CF98F9 /* StopListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopListViewController.h; sourceTree = "<group>"; };
 		AEA8ED7724BD4A3800CF98F9 /* FileInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileInfoViewController.m; sourceTree = "<group>"; };
 		AEA8ED7E24BD4A7200CF98F9 /* ButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
 		AEA8ED8024BD4A7300CF98F9 /* LeftRightArrowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftRightArrowCell.h; sourceTree = "<group>"; };
@@ -252,8 +249,6 @@
 			children = (
 				AEA8ED7024BD4A3800CF98F9 /* FileInfoViewController.h */,
 				AEA8ED7724BD4A3800CF98F9 /* FileInfoViewController.m */,
-				AEA8ED7324BD4A3800CF98F9 /* StopListViewController.h */,
-				AEA8ED7124BD4A3800CF98F9 /* StopListViewController.m */,
 				AEBD6FFB24C0503B00F694BB /* ALActiveListController.h */,
 				AEBD6FFC24C0503B00F694BB /* ALActiveListController.m */,
 				AE7277ED24C1BC7D006020A7 /* ALFileListController.h */,
@@ -462,7 +457,6 @@
 				AEA8ED6C24BD4A0D00CF98F9 /* CommonUtils.m in Sources */,
 				AEA8ED6A24BD4A0D00CF98F9 /* MsgUtils.m in Sources */,
 				AEBD6FFD24C0503B00F694BB /* ALActiveListController.m in Sources */,
-				AEA8ED7824BD4A3800CF98F9 /* StopListViewController.m in Sources */,
 				AE3D02C02472780600387263 /* main.m in Sources */,
 				AEA8ED7B24BD4A3800CF98F9 /* FileInfoViewController.m in Sources */,
 				AEA8ED8524BD4A7300CF98F9 /* ButtonCell.m in Sources */,

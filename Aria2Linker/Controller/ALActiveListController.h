@@ -6,12 +6,11 @@
 //  Copyright © 2020 CodeTips. All rights reserved.
 //
 
-#import "BaseViewController.h"
-
+#import "ALFileListController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ALActiveListController : BaseViewController
+@interface ALActiveListController : ALFileListController
 
 
 @end

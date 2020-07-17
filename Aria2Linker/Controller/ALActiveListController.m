@@ -25,16 +25,8 @@
 UIPopoverPresentationControllerDelegate,
 ALPopMenuControllerDelegate,
 ALAddServerControllerDelegate,
-UITableViewDelegate,
-UITableViewDataSource,
 ALServersControllerDelegate
 >
-
-@property (strong, nonatomic) JsonrpcServer *jsonrpcServer;
-@property (strong, nonatomic) NSTimer *timer;
-@property (strong, nonatomic) NSArray *fileList;
-@property (strong, nonatomic) UITableView *tableView;
-
 @end
 
 @implementation ALActiveListController
@@ -147,28 +139,10 @@ ALServersControllerDelegate
     [[LocalCacheUtils getInstance] setJsonrpcArray:servers];
 }
 
-- (void)startTimer
-{
-    if (!_jsonrpcServer) {
-        return;
-    }
-    if (_timer && !_timer.valid) {
-        [_timer fire];
-    } else {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(refreshData) userInfo:nil repeats:YES];
-    }
-}
-
-- (void)stopTimer
-{
-    [_timer invalidate];
-    _timer = nil;
-}
-
 - (void)refreshData
 {
     self.title = self.jsonrpcServer.name;
-    [APIUtils listActiveAndStop:_jsonrpcServer.uri rpcPasswd:_jsonrpcServer.secret success:^(NSArray *taskInfos, NSInteger count) {
+    [APIUtils listActiveAndStop:self.jsonrpcServer.uri rpcPasswd:self.jsonrpcServer.secret success:^(NSArray *taskInfos, NSInteger count) {
         self.fileList = taskInfos;
         [self.tableView reloadData];
     }failure:^(NSString *msg) {
@@ -176,49 +150,6 @@ ALServersControllerDelegate
     }];
 }
 
-- (UITableView *)tableView
-{
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        _tableView.dataSource = self;
-        _tableView.delegate = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [self.view addSubview:_tableView];
-
-        _tableView.backgroundColor = ymBackgroudColor;
-        [_tableView registerClass:[ALFileDownloadViewCell class] forCellReuseIdentifier:@"FileCellText"];
-    }
-    return _tableView;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ALFileDownloadViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FileCellText" forIndexPath:indexPath];
-    TaskInfo *act = _fileList[indexPath.row];
-    cell.active = act;
-    return cell;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.fileList.count;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    TaskInfo *taskInfo = self.fileList[indexPath.row];
-    FileInfoViewController *vc = [FileInfoViewController new];
-    vc.gid = taskInfo.gid;
-    vc.rpcUri = _jsonrpcServer.uri;
-    vc.secret = _jsonrpcServer.secret;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction *_Nonnull action, NSIndexPath *_Nonnull indexPath) {
-        
-    }];
-    deleteRowAction.backgroundColor = [UIColor redColor];
-    return @[deleteRowAction];
-}
 
 - (void)serversController:(ALServersController *)controller didSelectServer:(JsonrpcServer *)server
 {
@@ -274,21 +205,21 @@ ALServersControllerDelegate
 
 - (void)removeTask:(TaskInfo *)taskInfo
 {
-    [APIUtils removeByGid:taskInfo.gid rpcUri:_jsonrpcServer.uri rpcPasswd:_jsonrpcServer.secret success:^(NSString *okmsg) {
+    [APIUtils removeByGid:taskInfo.gid rpcUri:self.jsonrpcServer.uri rpcPasswd:self.jsonrpcServer.secret success:^(NSString *okmsg) {
         [MsgUtils showMsg:@"已删除下载任务"];
     }failure:nil];
 }
 
 - (void)pauseTask:(TaskInfo *)taskInfo
 {
-    [APIUtils pauseByGid:taskInfo.gid rpcUri:_jsonrpcServer.uri rpcPasswd:_jsonrpcServer.secret success:^(NSString *okmsg) {
+    [APIUtils pauseByGid:taskInfo.gid rpcUri:self.jsonrpcServer.uri rpcPasswd:self.jsonrpcServer.secret success:^(NSString *okmsg) {
         [MsgUtils showMsg:@"已暂停下载"];
     }failure:nil];
 }
 
 - (void)resumeTask:(TaskInfo *)taskInfo
 {
-    [APIUtils unpauseByGid:taskInfo.gid rpcUri:_jsonrpcServer.uri rpcPasswd:_jsonrpcServer.secret success:^(NSString *okmsg) {
+    [APIUtils unpauseByGid:taskInfo.gid rpcUri:self.jsonrpcServer.uri rpcPasswd:self.jsonrpcServer.secret success:^(NSString *okmsg) {
         [MsgUtils showMsg:@"恢复下载"];
     }failure:nil];
 }

@@ -6,14 +6,11 @@
 //  Copyright © 2020 CodeTips. All rights reserved.
 //
 
-#import "BaseViewController.h"
-#import "JsonrpcServer.h"
+#import "ALFileListController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ALStopListController : BaseViewController
-
-@property (strong, nonatomic) JsonrpcServer *jsonrpcServer;
+@interface ALStopListController : ALFileListController
 
 @end
 
