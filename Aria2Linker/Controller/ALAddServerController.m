@@ -41,6 +41,9 @@
     _serverAddress.placeholder = @"请输入服务地址";
     [self.view addSubview:_serverAddress];
     
+    NSString *str = [[UIPasteboard generalPasteboard] string];
+    _serverAddress.text = ![CommonUtils stringIsNull:str] && [str hasPrefix:@"http://"] ? str :  @"http://";
+    
     UILabel *passwordLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, _serverAddress.bottom + 10, 120, 44)];
     passwordLabel.text = @"Aria2 RPC 秘钥";
     [self.view addSubview:passwordLabel];

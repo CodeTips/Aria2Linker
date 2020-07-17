@@ -45,7 +45,11 @@ static NSString *kALPopMenuItemCell = @"ALPopMenuItemCell";
 - (UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 13, self.preferredContentSize.width, self.preferredContentSize.height) style:UITableViewStylePlain];
+        CGRect frame = CGRectMake(0, 0, self.preferredContentSize.width, self.preferredContentSize.height);
+        if (@available(iOS 13.0, *)) {
+            frame = CGRectMake(0, 13, self.preferredContentSize.width, self.preferredContentSize.height);
+        }
+        _tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
         [_tableView registerClass:[ALPopMenuItemCell class] forCellReuseIdentifier:kALPopMenuItemCell];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.scrollEnabled = NO;

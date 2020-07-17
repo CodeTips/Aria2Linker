@@ -88,7 +88,7 @@
             vc.gid = act.gid;
             vc.rpcUri = _jsonrpcServer.uri;
             vc.secret = _jsonrpcServer.secret;
-            [self gotoVC:vc];
+        [self.navigationController pushViewController:vc animated:YES];
         }
         pauseCB:nil
         pauseTitle:nil

@@ -66,4 +66,14 @@
 - (NSArray *)getJsonrpcArray {
     return  [NSArray yy_modelArrayWithClass:[JsonrpcServer class] json:[_userDefaults objectForKey:JSONRPCKey]];
 }
+
+- (void)setDefaultJsonrpc:(id)jsonrpc
+{
+    [_userDefaults setObject:[jsonrpc yy_modelToJSONObject] forKey:DefaultJSONRPCKey];
+    [_userDefaults synchronize];
+}
+- (id)getDefaultJsonrpc
+{
+    return  [JsonrpcServer yy_modelWithJSON:[_userDefaults objectForKey:DefaultJSONRPCKey]];
+}
 @end

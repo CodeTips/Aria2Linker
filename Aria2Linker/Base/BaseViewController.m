@@ -7,28 +7,59 @@
 //
 
 #import "BaseViewController.h"
-#import "AppDelegate.h"
 
-#pragma mark - BaseViewController
-@interface BaseViewController (Dismiss)
+@interface ALDefaultView : UIView
 
-/**
- * 判断是否: TabBarVC -> NavController -> rootVC(self)
- */
-- (BOOL)TabBarNavRootView;
+@property (nonatomic, copy) NSString *message;
+@property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) UIImageView *imageView;
 
-/**
- * 判断是否: TabBarVC -> NavController -> rootVC -> self
- */
-- (BOOL)TabBarNavSecdView;
-/**
- * 设置角标数
- */
-- (void)setBadgeValue:(NSString *)val;
-
-@property Class rootTabClazz;
 
 @end
+
+@implementation ALDefaultView
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.label.text = self.message;
+    self.imageView.center = CGPointMake(self.width / 2, self.height / 2 - 100);
+    [self.label sizeToFit];
+    self.label.top = self.imageView.bottom + 20;
+    self.label.centerX = self.imageView.centerX;
+}
+
+- (UIImageView *)imageView
+{
+    if (!_imageView) {
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 80)];
+        _imageView.image = [UIImage imageNamed:@"zanwufuwu"];
+        [self addSubview:_imageView];
+    }
+    return _imageView;
+}
+
+- (UILabel *)label
+{
+    if (!_label) {
+        _label = [[UILabel alloc] init];
+        _label.font = [UIFont systemFontOfSize:14];
+        _label.textColor = ymNavBackgroundColor;
+        [self addSubview:_label];
+    }
+    return _label;
+}
+
+
+@end
+
+
+@interface BaseViewController ()
+
+@property (nonatomic,strong) ALDefaultView *defaultView;
+
+@end
+
 
 @implementation BaseViewController
 
@@ -64,67 +95,53 @@
         NSFontAttributeName : [UIFont systemFontOfSize:ymFontSizeBigger]
     };
     [self.navigationController.navigationBar setTitleTextAttributes:textAttrbutes];
+
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+- (void)setHiddenRightBarButtonItem:(BOOL)hiddenRightBarButtonItem
+{
+    _hiddenRightBarButtonItem = hiddenRightBarButtonItem;
+    if (hiddenRightBarButtonItem) {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    else{
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showPopMenu:)];
+    }
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    //    LLog(@"viewWillAppear self: %@",self);
+- (void)showPopMenu:(UIBarButtonItem *)sender
+{
+    
 }
 
+- (void)showDefaultViewWithMessage:(NSString *)message
+{
+    [self.view bringSubviewToFront:self.defaultView];
+    self.defaultView.message = message;
+    self.defaultView.hidden = NO;
+}
 
-#pragma mark BackBtn M
-/**
- * 通用返回按钮
- */
+- (void)hiddenDefaultView
+{
+    self.defaultView.hidden = YES;
+}
+
+- (ALDefaultView *)defaultView
+{
+    if (!_defaultView) {
+        _defaultView = [[ALDefaultView alloc] initWithFrame:self.view.bounds];
+        [self.view addSubview:_defaultView];
+    }
+    return _defaultView;
+}
+
 - (UIBarButtonItem *)backButton {
     UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
     return backBarButtonItem;
 }
 
-/**
- * 返回
- */
 - (void)goBack {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)goBackNoAnimated {
-    [self.navigationController popViewControllerAnimated:NO];
-}
-
-- (void)setTitle:(NSString *)title {
-    self.navigationItem.title = title;
-}
-
-- (void)returnToVC:(UIViewController *)VC {
-    [self.navigationController popToViewController:VC animated:true];
-}
-
-- (void)returnToVCWithVCIndex:(NSUInteger)returnVCIndex {
-    [self.navigationController
-        popToViewController:[self.navigationController.viewControllers objectAtIndex:returnVCIndex]
-                   animated:true];
-}
-
-/**
- * 插入新的VC
- */
-- (void)gotoVC:(UIViewController *)VC {
-    if ([self.navigationController.topViewController isKindOfClass:[VC class]]) {
-        return;
-    }
-    [self.navigationController pushViewController:VC animated:YES];
-}
-
-- (void)dismissVC {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (NSUInteger)getVCIndex:(UIViewController *)vc {
-    return [self.navigationController.viewControllers indexOfObject:vc];
-}
 @end

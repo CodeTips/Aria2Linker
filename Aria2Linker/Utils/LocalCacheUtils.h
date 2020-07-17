@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define JSONRPCKey @"jsonrpcKey"
+#define JSONRPCKey @"JsonrpcKey"
+#define DefaultJSONRPCKey @"DefaultJsonrpcKey"
 
 @interface LocalCacheUtils : NSObject
 + (id)getInstance;
@@ -28,4 +29,8 @@
 
 - (void)setJsonrpcArray:(NSArray *)array;
 - (NSArray *)getJsonrpcArray;
+
+- (void)setDefaultJsonrpc:(id)jsonrpc;
+- (id)getDefaultJsonrpc;
+
 @end

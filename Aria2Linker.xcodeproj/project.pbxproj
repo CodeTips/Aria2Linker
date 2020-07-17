@@ -13,6 +13,8 @@
 		AE3D02C02472780600387263 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3D02BF2472780600387263 /* main.m */; };
 		AE696FD924BC7114004723DA /* HolmesWithIDFA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE696FD724BC7077004723DA /* HolmesWithIDFA.framework */; };
 		AE696FDA24BC7114004723DA /* HolmesWithIDFA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE696FD724BC7077004723DA /* HolmesWithIDFA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE7277E324C195B6006020A7 /* ALServersController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7277E224C195B6006020A7 /* ALServersController.m */; };
+		AE7277E624C1962C006020A7 /* ALStopListController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7277E524C1962C006020A7 /* ALStopListController.m */; };
 		AE802F4624BEDE8F002668EB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE802F4824BEDE8F002668EB /* Localizable.strings */; };
 		AE802F4C24BEDEE5002668EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE802F4E24BEDEE5002668EB /* InfoPlist.strings */; };
 		AEA8ED5324BD49AA00CF98F9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED4F24BD49AA00CF98F9 /* BaseViewController.m */; };
@@ -25,8 +27,6 @@
 		AEA8ED6D24BD4A0D00CF98F9 /* APIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED6724BD4A0C00CF98F9 /* APIUtils.m */; };
 		AEA8ED6E24BD4A0D00CF98F9 /* NetUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED6924BD4A0C00CF98F9 /* NetUtils.m */; };
 		AEA8ED7824BD4A3800CF98F9 /* StopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED7124BD4A3800CF98F9 /* StopListViewController.m */; };
-		AEA8ED7924BD4A3800CF98F9 /* ServersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED7224BD4A3800CF98F9 /* ServersViewController.m */; };
-		AEA8ED7A24BD4A3800CF98F9 /* ActiveListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED7424BD4A3800CF98F9 /* ActiveListViewController.m */; };
 		AEA8ED7B24BD4A3800CF98F9 /* FileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED7724BD4A3800CF98F9 /* FileInfoViewController.m */; };
 		AEA8ED8524BD4A7300CF98F9 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED7E24BD4A7200CF98F9 /* ButtonCell.m */; };
 		AEA8ED8724BD4A7300CF98F9 /* LeftRightArrowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED8324BD4A7300CF98F9 /* LeftRightArrowCell.m */; };
@@ -70,6 +70,10 @@
 		AE3D02BF2472780600387263 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AE696FD624BC6F00004723DA /* Aria2Linker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Aria2Linker.entitlements; sourceTree = "<group>"; };
 		AE696FD724BC7077004723DA /* HolmesWithIDFA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HolmesWithIDFA.framework; sourceTree = "<group>"; };
+		AE7277E124C195B6006020A7 /* ALServersController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALServersController.h; sourceTree = "<group>"; };
+		AE7277E224C195B6006020A7 /* ALServersController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALServersController.m; sourceTree = "<group>"; };
+		AE7277E424C1962C006020A7 /* ALStopListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALStopListController.h; sourceTree = "<group>"; };
+		AE7277E524C1962C006020A7 /* ALStopListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALStopListController.m; sourceTree = "<group>"; };
 		AE802F4324BEDE41002668EB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		AE802F4724BEDE8F002668EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AE802F4924BEDE96002668EB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -95,11 +99,7 @@
 		AEA8ED6924BD4A0C00CF98F9 /* NetUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetUtils.m; sourceTree = "<group>"; };
 		AEA8ED7024BD4A3800CF98F9 /* FileInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileInfoViewController.h; sourceTree = "<group>"; };
 		AEA8ED7124BD4A3800CF98F9 /* StopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopListViewController.m; sourceTree = "<group>"; };
-		AEA8ED7224BD4A3800CF98F9 /* ServersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServersViewController.m; sourceTree = "<group>"; };
 		AEA8ED7324BD4A3800CF98F9 /* StopListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopListViewController.h; sourceTree = "<group>"; };
-		AEA8ED7424BD4A3800CF98F9 /* ActiveListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveListViewController.m; sourceTree = "<group>"; };
-		AEA8ED7524BD4A3800CF98F9 /* ServersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServersViewController.h; sourceTree = "<group>"; };
-		AEA8ED7624BD4A3800CF98F9 /* ActiveListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveListViewController.h; sourceTree = "<group>"; };
 		AEA8ED7724BD4A3800CF98F9 /* FileInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileInfoViewController.m; sourceTree = "<group>"; };
 		AEA8ED7E24BD4A7200CF98F9 /* ButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
 		AEA8ED8024BD4A7300CF98F9 /* LeftRightArrowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftRightArrowCell.h; sourceTree = "<group>"; };
@@ -244,12 +244,8 @@
 		AEA8ED7C24BD4A4500CF98F9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AEA8ED7624BD4A3800CF98F9 /* ActiveListViewController.h */,
-				AEA8ED7424BD4A3800CF98F9 /* ActiveListViewController.m */,
 				AEA8ED7024BD4A3800CF98F9 /* FileInfoViewController.h */,
 				AEA8ED7724BD4A3800CF98F9 /* FileInfoViewController.m */,
-				AEA8ED7524BD4A3800CF98F9 /* ServersViewController.h */,
-				AEA8ED7224BD4A3800CF98F9 /* ServersViewController.m */,
 				AEA8ED7324BD4A3800CF98F9 /* StopListViewController.h */,
 				AEA8ED7124BD4A3800CF98F9 /* StopListViewController.m */,
 				AEBD6FFB24C0503B00F694BB /* ALActiveListController.h */,
@@ -258,6 +254,10 @@
 				AEBD6FFF24C05A5E00F694BB /* ALPopMenuController.m */,
 				AEBD700424C07C8B00F694BB /* ALAddServerController.h */,
 				AEBD700524C07C8C00F694BB /* ALAddServerController.m */,
+				AE7277E124C195B6006020A7 /* ALServersController.h */,
+				AE7277E224C195B6006020A7 /* ALServersController.m */,
+				AE7277E424C1962C006020A7 /* ALStopListController.h */,
+				AE7277E524C1962C006020A7 /* ALStopListController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -435,22 +435,22 @@
 				AEA8ED6E24BD4A0D00CF98F9 /* NetUtils.m in Sources */,
 				AEA8ED6D24BD4A0D00CF98F9 /* APIUtils.m in Sources */,
 				AEBD700924C082F100F694BB /* UIView+FrameLayout.m in Sources */,
+				AE7277E624C1962C006020A7 /* ALStopListController.m in Sources */,
 				AEA8ED8E24BD4A8F00CF98F9 /* JsonrpcServer.m in Sources */,
 				AE3D02AF2472780600387263 /* AppDelegate.m in Sources */,
 				AEA8ED5E24BD49DC00CF98F9 /* UIButton+Bootstrap.m in Sources */,
+				AE7277E324C195B6006020A7 /* ALServersController.m in Sources */,
 				AEBD6FE724C039DE00F694BB /* ALJsonrpcServerViewCell.m in Sources */,
 				AEA8ED8F24BD4A8F00CF98F9 /* Result.m in Sources */,
 				AEA8ED6B24BD4A0D00CF98F9 /* LocalCacheUtils.m in Sources */,
 				AEA8ED8724BD4A7300CF98F9 /* LeftRightArrowCell.m in Sources */,
 				AEA8ED5D24BD49DC00CF98F9 /* UIColor+expanded.m in Sources */,
 				AEA8ED5324BD49AA00CF98F9 /* BaseViewController.m in Sources */,
-				AEA8ED7A24BD4A3800CF98F9 /* ActiveListViewController.m in Sources */,
 				AEBD700024C05A5E00F694BB /* ALPopMenuController.m in Sources */,
 				AEA8ED6C24BD4A0D00CF98F9 /* CommonUtils.m in Sources */,
 				AEA8ED6A24BD4A0D00CF98F9 /* MsgUtils.m in Sources */,
 				AEBD6FFD24C0503B00F694BB /* ALActiveListController.m in Sources */,
 				AEA8ED7824BD4A3800CF98F9 /* StopListViewController.m in Sources */,
-				AEA8ED7924BD4A3800CF98F9 /* ServersViewController.m in Sources */,
 				AE3D02C02472780600387263 /* main.m in Sources */,
 				AEA8ED7B24BD4A3800CF98F9 /* FileInfoViewController.m in Sources */,
 				AEA8ED8524BD4A7300CF98F9 /* ButtonCell.m in Sources */,
