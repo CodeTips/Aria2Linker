@@ -34,7 +34,7 @@
             [_nameT setText:@" "];
             [self.contentView addSubview:_nameT];
             _nameT.numberOfLines = 2;
-            _nameT.font = [UIFont systemFontOfSize:ymFontSizeBigger];
+            _nameT.font = [UIFont systemFontOfSize:ymFontSizeNormal];
             [_nameT setTextColor:ymContentPrimaryTextColor];
             [_nameT mas_makeConstraints:^(MASConstraintMaker *make) {
                 @strongify(self);
@@ -103,11 +103,30 @@
                 make.centerY.equalTo(self.nameT).offset(-(self.sizeT.height + 2 * ymScreen_top_padding)/ 2);
             }];
         }
+        
+        if (!_startButton) {
+            _startButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [_startButton addTarget:self action:@selector(startButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+            [_startButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+            [self.contentView addSubview:_startButton];
+            [_startButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                @strongify(self);
+                make.width.equalTo(@25);
+                make.height.equalTo(@25);
+                make.left.equalTo(self.nameT.mas_right).offset(ymScreen_padding_default);
+                make.centerY.equalTo(self.nameT).offset((self.sizeT.height + 2 * ymScreen_top_padding)/ 2);
+            }];
+        }
     }
 
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 
     return self;
+}
+
+- (void)startButtonAction:(id)sender
+{
+    
 }
 
 - (void)setActive:(TaskInfo *)taskInfo {
@@ -150,6 +169,10 @@
     else if([keyPath isEqualToString:@"status"]){
         if ([_active.status isEqualToString:@"paused"]) {
             _speedT.text = @" ";
+            [_startButton setImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
+        }
+        else{
+            [_startButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
         }
     }
     else{
