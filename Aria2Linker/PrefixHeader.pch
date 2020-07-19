@@ -78,10 +78,10 @@
 
 #define ymScreen_padding_default 10
 #define ymScreen_cell_padding 8
-#define ymScreen_top_padding 12
+#define ymScreen_top_padding 6
 #define ymScreen_bottom_padding -10
 #define ymScreen_right_padding -10
-#define ymScreen_left_padding 10
+#define ymScreen_left_padding 12
 
 #define ymDevice_Is_iPhone4                                                                                            \
     ([UIScreen instancesRespondToSelector:@selector(currentMode)]                                                      \

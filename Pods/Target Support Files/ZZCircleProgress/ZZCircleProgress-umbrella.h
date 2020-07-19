@@ -10,8 +10,9 @@
 #endif
 #endif
 
-#import "YLProgressBar.h"
+#import "ZZCircleProgress.h"
+#import "ZZCountingLabel.h"
 
-FOUNDATION_EXPORT double YLProgressBarVersionNumber;
-FOUNDATION_EXPORT const unsigned char YLProgressBarVersionString[];
+FOUNDATION_EXPORT double ZZCircleProgressVersionNumber;
+FOUNDATION_EXPORT const unsigned char ZZCircleProgressVersionString[];
 

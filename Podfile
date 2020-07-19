@@ -12,7 +12,7 @@ def shared_pods
     pod 'TPKeyboardAvoiding', '1.2.4'
     pod 'MBProgressHUD','0.9.2'
     pod 'AFNetworking'
-    pod 'YLProgressBar', '~> 3.11.0'
+    pod 'ZZCircleProgress', '~> 0.2.1'
     pod 'TYAlertController'
     pod 'MJRefresh'
 end

@@ -10,11 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @class ALAddServerController;
-@class JsonrpcServer;
+@class ALJsonrpcServer;
 
 @protocol ALAddServerControllerDelegate <NSObject>
 
-- (void)addServerController:(ALAddServerController *)controller successfullyAddedServer:(JsonrpcServer *)server;
+- (void)addServerController:(ALAddServerController *)controller successfullyAddedServer:(ALJsonrpcServer *)server;
 
 @end
 

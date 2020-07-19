@@ -136,11 +136,12 @@
 }
 
 - (UIBarButtonItem *)backButton {
-    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back"] style:UIBarButtonItemStylePlain target:self action:@selector(backButtonAction:)];
     return backBarButtonItem;
 }
 
-- (void)goBack {
+- (void)backButtonAction:(id)sender
+{
     [self.navigationController popViewControllerAnimated:YES];
 }
 

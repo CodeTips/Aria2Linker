@@ -87,7 +87,7 @@
     return self;
 }
 
-- (void)setJsonrpcServer:(JsonrpcServer *)jsonrpcServer {
+- (void)setJsonrpcServer:(ALJsonrpcServer *)jsonrpcServer {
     _nameT.text = jsonrpcServer.name;
     _uriT.text = jsonrpcServer.uri;
 }

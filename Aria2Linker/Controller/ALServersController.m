@@ -40,7 +40,7 @@
     [self.navigationController pushViewController:serverController animated:YES];
 }
 
-- (void)addServerController:(ALAddServerController *)controller successfullyAddedServer:(JsonrpcServer *)server
+- (void)addServerController:(ALAddServerController *)controller successfullyAddedServer:(ALJsonrpcServer *)server
 {
     [self hiddenDefaultView];
     [self.servers addObject:server];
@@ -77,7 +77,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ALJsonrpcServerViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JsonrpcServerCellText" forIndexPath:indexPath];
-    JsonrpcServer *jrs = self.servers[indexPath.row];
+    ALJsonrpcServer *jrs = self.servers[indexPath.row];
     [cell setJsonrpcServer:jrs];
     [APIUtils getGlobalStatus:jrs.uri rpcPasswd:jrs.secret success:^(GlobalStatus *globalStatus) {
         [cell setStat:globalStatus];
@@ -89,7 +89,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    JsonrpcServer *jrs = self.servers[indexPath.row];
+    ALJsonrpcServer *jrs = self.servers[indexPath.row];
     if ([self.delegate respondsToSelector:@selector(serversController:didSelectServer:)]) {
         [self.delegate serversController:self didSelectServer:jrs];
     }
@@ -102,7 +102,7 @@
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction *_Nonnull action, NSIndexPath *_Nonnull indexPath) {
-        JsonrpcServer *jrs = self.servers[indexPath.row];
+        ALJsonrpcServer *jrs = self.servers[indexPath.row];
         
         [self.servers removeObjectAtIndex:indexPath.row];
         [[LocalCacheUtils getInstance] setJsonrpcArray:self.servers];

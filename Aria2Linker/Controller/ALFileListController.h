@@ -9,16 +9,20 @@
 #import "BaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@class JsonrpcServer;
+@class ALJsonrpcServer;
+@class ALFileListViewModel;
 
 @interface ALFileListController : BaseViewController
 
 @property (strong, nonatomic) UITableView *tableView;
-@property (strong, nonatomic, nullable) NSArray *fileList;
-@property (strong, nonatomic, nullable) JsonrpcServer *jsonrpcServer;
+@property (strong, nonatomic) ALFileListViewModel *viewModel;
+@property (strong, nonatomic, nullable) ALJsonrpcServer *jsonrpcServer;
 
 - (void)stopTimer;
 - (void)startTimer;
+- (void)refreshData;
+- (void)addObservers;
+- (void)removeObservers;
 
 @end
 

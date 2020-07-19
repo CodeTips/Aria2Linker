@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JsonrpcServer.h"
+#import "ALJsonrpcServer.h"
 #import "Result.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ALJsonrpcServerViewCell : UITableViewCell
 
-@property (strong, nonatomic) JsonrpcServer *jsonrpcServer;
+@property (strong, nonatomic) ALJsonrpcServer *jsonrpcServer;
 @property (strong, nonatomic) GlobalStatus *stat;
 - (void)setOfflineStat;
 

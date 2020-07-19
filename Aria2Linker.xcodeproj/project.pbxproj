@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E72C4C824C46245001AA296 /* ALFileListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E72C4C724C46245001AA296 /* ALFileListViewModel.m */; };
+		5E72C4CB24C4625F001AA296 /* ALActiveListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E72C4CA24C4625F001AA296 /* ALActiveListViewModel.m */; };
+		5E72C4CE24C4627F001AA296 /* ALStopListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E72C4CD24C4627F001AA296 /* ALStopListViewModel.m */; };
 		AE3D02AF2472780600387263 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3D02AE2472780600387263 /* AppDelegate.m */; };
 		AE3D02BA2472780600387263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3D02B92472780600387263 /* Assets.xcassets */; };
 		AE3D02BD2472780600387263 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3D02BB2472780600387263 /* LaunchScreen.storyboard */; };
@@ -31,7 +34,7 @@
 		AEA8ED7B24BD4A3800CF98F9 /* FileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED7724BD4A3800CF98F9 /* FileInfoViewController.m */; };
 		AEA8ED8524BD4A7300CF98F9 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED7E24BD4A7200CF98F9 /* ButtonCell.m */; };
 		AEA8ED8724BD4A7300CF98F9 /* LeftRightArrowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED8324BD4A7300CF98F9 /* LeftRightArrowCell.m */; };
-		AEA8ED8E24BD4A8F00CF98F9 /* JsonrpcServer.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED8C24BD4A8F00CF98F9 /* JsonrpcServer.m */; };
+		AEA8ED8E24BD4A8F00CF98F9 /* ALJsonrpcServer.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED8C24BD4A8F00CF98F9 /* ALJsonrpcServer.m */; };
 		AEA8ED8F24BD4A8F00CF98F9 /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA8ED8D24BD4A8F00CF98F9 /* Result.m */; };
 		AEBD6FE424C0382000F694BB /* ALFileDownloadViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBD6FE324C0382000F694BB /* ALFileDownloadViewCell.m */; };
 		AEBD6FE724C039DE00F694BB /* ALJsonrpcServerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBD6FE624C039DE00F694BB /* ALJsonrpcServerViewCell.m */; };
@@ -61,6 +64,12 @@
 /* Begin PBXFileReference section */
 		04236CB2D29A346F1B15CC52 /* Pods_Aria2Linker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aria2Linker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		085195F1C517CC450F4CDAF1 /* Pods-Aria2Linker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aria2Linker.debug.xcconfig"; path = "Target Support Files/Pods-Aria2Linker/Pods-Aria2Linker.debug.xcconfig"; sourceTree = "<group>"; };
+		5E72C4C624C46245001AA296 /* ALFileListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALFileListViewModel.h; sourceTree = "<group>"; };
+		5E72C4C724C46245001AA296 /* ALFileListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALFileListViewModel.m; sourceTree = "<group>"; };
+		5E72C4C924C4625F001AA296 /* ALActiveListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALActiveListViewModel.h; sourceTree = "<group>"; };
+		5E72C4CA24C4625F001AA296 /* ALActiveListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALActiveListViewModel.m; sourceTree = "<group>"; };
+		5E72C4CC24C4627F001AA296 /* ALStopListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALStopListViewModel.h; sourceTree = "<group>"; };
+		5E72C4CD24C4627F001AA296 /* ALStopListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALStopListViewModel.m; sourceTree = "<group>"; };
 		7C330483A02B016A3C10D804 /* Pods-Aria2Linker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aria2Linker.release.xcconfig"; path = "Target Support Files/Pods-Aria2Linker/Pods-Aria2Linker.release.xcconfig"; sourceTree = "<group>"; };
 		AE3D02AA2472780600387263 /* Aria2Linker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aria2Linker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3D02AD2472780600387263 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,8 +118,8 @@
 		AEA8ED8224BD4A7300CF98F9 /* ButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
 		AEA8ED8324BD4A7300CF98F9 /* LeftRightArrowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftRightArrowCell.m; sourceTree = "<group>"; };
 		AEA8ED8A24BD4A8E00CF98F9 /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
-		AEA8ED8B24BD4A8F00CF98F9 /* JsonrpcServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonrpcServer.h; sourceTree = "<group>"; };
-		AEA8ED8C24BD4A8F00CF98F9 /* JsonrpcServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonrpcServer.m; sourceTree = "<group>"; };
+		AEA8ED8B24BD4A8F00CF98F9 /* ALJsonrpcServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALJsonrpcServer.h; sourceTree = "<group>"; };
+		AEA8ED8C24BD4A8F00CF98F9 /* ALJsonrpcServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALJsonrpcServer.m; sourceTree = "<group>"; };
 		AEA8ED8D24BD4A8F00CF98F9 /* Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
 		AEA8ED9124BD4B8F00CF98F9 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		AEBD6FE224C0382000F694BB /* ALFileDownloadViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALFileDownloadViewCell.h; sourceTree = "<group>"; };
@@ -247,20 +256,20 @@
 		AEA8ED7C24BD4A4500CF98F9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AEA8ED7024BD4A3800CF98F9 /* FileInfoViewController.h */,
-				AEA8ED7724BD4A3800CF98F9 /* FileInfoViewController.m */,
-				AEBD6FFB24C0503B00F694BB /* ALActiveListController.h */,
-				AEBD6FFC24C0503B00F694BB /* ALActiveListController.m */,
 				AE7277ED24C1BC7D006020A7 /* ALFileListController.h */,
 				AE7277EE24C1BC7D006020A7 /* ALFileListController.m */,
+				AEBD6FFB24C0503B00F694BB /* ALActiveListController.h */,
+				AEBD6FFC24C0503B00F694BB /* ALActiveListController.m */,
+				AE7277E424C1962C006020A7 /* ALStopListController.h */,
+				AE7277E524C1962C006020A7 /* ALStopListController.m */,
+				AEA8ED7024BD4A3800CF98F9 /* FileInfoViewController.h */,
+				AEA8ED7724BD4A3800CF98F9 /* FileInfoViewController.m */,
 				AEBD6FFE24C05A5E00F694BB /* ALPopMenuController.h */,
 				AEBD6FFF24C05A5E00F694BB /* ALPopMenuController.m */,
 				AEBD700424C07C8B00F694BB /* ALAddServerController.h */,
 				AEBD700524C07C8C00F694BB /* ALAddServerController.m */,
 				AE7277E124C195B6006020A7 /* ALServersController.h */,
 				AE7277E224C195B6006020A7 /* ALServersController.m */,
-				AE7277E424C1962C006020A7 /* ALStopListController.h */,
-				AE7277E524C1962C006020A7 /* ALStopListController.m */,
 				AE7277E724C1B31C006020A7 /* ALAboutViewController.h */,
 				AE7277E824C1B31C006020A7 /* ALAboutViewController.m */,
 			);
@@ -287,12 +296,18 @@
 		AEA8ED9024BD4A9300CF98F9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AEA8ED8B24BD4A8F00CF98F9 /* JsonrpcServer.h */,
-				AEA8ED8C24BD4A8F00CF98F9 /* JsonrpcServer.m */,
+				AEA8ED8B24BD4A8F00CF98F9 /* ALJsonrpcServer.h */,
+				AEA8ED8C24BD4A8F00CF98F9 /* ALJsonrpcServer.m */,
 				AEA8ED8A24BD4A8E00CF98F9 /* Result.h */,
 				AEA8ED8D24BD4A8F00CF98F9 /* Result.m */,
 				AEBD700124C06BB900F694BB /* ALPopMenuItem.h */,
 				AEBD700224C06BB900F694BB /* ALPopMenuItem.m */,
+				5E72C4C624C46245001AA296 /* ALFileListViewModel.h */,
+				5E72C4C724C46245001AA296 /* ALFileListViewModel.m */,
+				5E72C4C924C4625F001AA296 /* ALActiveListViewModel.h */,
+				5E72C4CA24C4625F001AA296 /* ALActiveListViewModel.m */,
+				5E72C4CC24C4627F001AA296 /* ALStopListViewModel.h */,
+				5E72C4CD24C4627F001AA296 /* ALStopListViewModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -443,8 +458,9 @@
 				AEBD700924C082F100F694BB /* UIView+FrameLayout.m in Sources */,
 				AE7277E624C1962C006020A7 /* ALStopListController.m in Sources */,
 				AE7277E924C1B31C006020A7 /* ALAboutViewController.m in Sources */,
-				AEA8ED8E24BD4A8F00CF98F9 /* JsonrpcServer.m in Sources */,
+				AEA8ED8E24BD4A8F00CF98F9 /* ALJsonrpcServer.m in Sources */,
 				AE3D02AF2472780600387263 /* AppDelegate.m in Sources */,
+				5E72C4CE24C4627F001AA296 /* ALStopListViewModel.m in Sources */,
 				AEA8ED5E24BD49DC00CF98F9 /* UIButton+Bootstrap.m in Sources */,
 				AE7277E324C195B6006020A7 /* ALServersController.m in Sources */,
 				AEBD6FE724C039DE00F694BB /* ALJsonrpcServerViewCell.m in Sources */,
@@ -456,6 +472,8 @@
 				AEBD700024C05A5E00F694BB /* ALPopMenuController.m in Sources */,
 				AEA8ED6C24BD4A0D00CF98F9 /* CommonUtils.m in Sources */,
 				AEA8ED6A24BD4A0D00CF98F9 /* MsgUtils.m in Sources */,
+				5E72C4C824C46245001AA296 /* ALFileListViewModel.m in Sources */,
+				5E72C4CB24C4625F001AA296 /* ALActiveListViewModel.m in Sources */,
 				AEBD6FFD24C0503B00F694BB /* ALActiveListController.m in Sources */,
 				AE3D02C02472780600387263 /* main.m in Sources */,
 				AEA8ED7B24BD4A3800CF98F9 /* FileInfoViewController.m in Sources */,

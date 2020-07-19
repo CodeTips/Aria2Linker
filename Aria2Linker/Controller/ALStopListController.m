@@ -10,17 +10,28 @@
 #import "ALFileDownloadViewCell.h"
 #import "FileInfoViewController.h"
 #import "APIUtils.h"
-#import "JsonrpcServer.h"
-@interface ALStopListController ()
+#import "ALJsonrpcServer.h"
+#import "ALStopListViewModel.h"
+
+@interface ALStopListController ()<ALFileListViewModelDelegate>
 
 @end
 
 @implementation ALStopListController
 
+- (void)dealloc
+{
+    [self removeObservers];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = [NSString stringWithFormat:@"%@-完成/停止",self.jsonrpcServer.name];
+    self.viewModel = [ALStopListViewModel new];
+    self.viewModel.delegate = self;
+    [self addObservers];
+    
     if (self.jsonrpcServer) {
         [self refreshData];
         [self startTimer];
@@ -30,19 +41,10 @@
     }
 }
 
-- (void)goBack{
+- (void)backButtonAction:(id)sender
+{
     [self stopTimer];
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)refreshData
-{
-    [APIUtils listStopped:self.jsonrpcServer.uri rpcPasswd:self.jsonrpcServer.secret success:^(NSArray *taskInfos, NSInteger count) {
-        self.fileList = taskInfos;
-        [self.tableView reloadData];
-    }failure:^(NSString *msg) {
-        [MsgUtils showMsg:msg];
-    }];
 }
 
 - (void)removeTask:(TaskInfo *)taskInfo

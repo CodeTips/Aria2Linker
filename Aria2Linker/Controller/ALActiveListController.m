@@ -11,7 +11,7 @@
 #import "ALAddServerController.h"
 #import "ALPopMenuItem.h"
 #import "LocalCacheUtils.h"
-#import "JsonrpcServer.h"
+#import "ALJsonrpcServer.h"
 #import "ALFileDownloadViewCell.h"
 #import "FileInfoViewController.h"
 #import "APIUtils.h"
@@ -20,22 +20,34 @@
 #import "ALServersController.h"
 #import "ALStopListController.h"
 #import "ALAboutViewController.h"
+#import "ALActiveListViewModel.h"
 
 @interface ALActiveListController ()<
 UIPopoverPresentationControllerDelegate,
 ALPopMenuControllerDelegate,
 ALAddServerControllerDelegate,
-ALServersControllerDelegate
+ALServersControllerDelegate,
+ALFileListViewModelDelegate
 >
 @end
 
 @implementation ALActiveListController
+
+- (void)dealloc
+{
+    [self removeObservers];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = NSLocalizedString(@"艾琳", nil);
     self.hiddenRightBarButtonItem = NO;
+    
+    self.viewModel = [ALActiveListViewModel new];
+    self.viewModel.delegate = self;
+    [self addObservers];
+    
     self.jsonrpcServer = [[LocalCacheUtils getInstance] getDefaultJsonrpc];
     if (self.jsonrpcServer) {
         [self refreshData];
@@ -124,7 +136,7 @@ ALServersControllerDelegate
     }
 }
 
-- (void)addServerController:(ALAddServerController *)controller successfullyAddedServer:(JsonrpcServer *)server
+- (void)addServerController:(ALAddServerController *)controller successfullyAddedServer:(ALJsonrpcServer *)server
 {
     [self hiddenDefaultView];
     
@@ -141,17 +153,12 @@ ALServersControllerDelegate
 
 - (void)refreshData
 {
-    self.title = self.jsonrpcServer.name;
-    [APIUtils listActiveAndStop:self.jsonrpcServer.uri rpcPasswd:self.jsonrpcServer.secret success:^(NSArray *taskInfos, NSInteger count) {
-        self.fileList = taskInfos;
-        [self.tableView reloadData];
-    }failure:^(NSString *msg) {
-        [MsgUtils showMsg:msg];
-    }];
+    [super refreshData];
+    self.title = self.jsonrpcServer.name?:NSLocalizedString(@"艾琳", nil);
 }
 
 
-- (void)serversController:(ALServersController *)controller didSelectServer:(JsonrpcServer *)server
+- (void)serversController:(ALServersController *)controller didSelectServer:(ALJsonrpcServer *)server
 {
     [self hiddenDefaultView];
     if (![self.jsonrpcServer.name isEqualToString:server.name]) {
@@ -161,20 +168,18 @@ ALServersControllerDelegate
     }
 }
 
-- (void)serversController:(ALServersController *)controller didDeleteServer:(JsonrpcServer *)server
+- (void)serversController:(ALServersController *)controller didDeleteServer:(ALJsonrpcServer *)server
 {
     if ([self.jsonrpcServer.name isEqualToString:server.name]) {
         NSArray *servers = [[LocalCacheUtils getInstance] getJsonrpcArray];
-        JsonrpcServer *rpcServer = servers.firstObject;
+        ALJsonrpcServer *rpcServer = servers.firstObject;
         if (rpcServer) {
             self.jsonrpcServer = rpcServer;
-            [self refreshData];
         }
         else{
             [self stopTimer];
             self.jsonrpcServer = nil;
-            self.fileList = nil;
-            [self.tableView reloadData];
+            [self.viewModel cleanUp];
             [self showDefaultViewWithMessage:@"暂无可用服务器"];
         }
         [[LocalCacheUtils getInstance] setDefaultJsonrpc:self.jsonrpcServer];

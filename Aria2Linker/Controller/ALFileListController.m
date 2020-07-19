@@ -8,11 +8,11 @@
 
 #import "ALFileListController.h"
 #import "APIUtils.h"
-#import "JsonrpcServer.h"
-#import "JsonrpcServer.h"
+#import "ALJsonrpcServer.h"
 #import "ALFileDownloadViewCell.h"
 #import "FileInfoViewController.h"
 #import "APIUtils.h"
+#import "ALFileListViewModel.h"
 
 @interface ALFileListController ()<
 UITableViewDelegate,
@@ -29,6 +29,26 @@ UITableViewDataSource
     [super viewDidLoad];
 }
 
+- (void)addObservers
+{
+    [self.viewModel addObserver:self forKeyPath:@"taskCount" options:NSKeyValueObservingOptionNew context:NULL];
+}
+
+- (void)removeObservers
+{
+    [self.viewModel removeObserver:self forKeyPath:@"taskCount"];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"taskCount"]) {
+        [self.tableView reloadData];
+    }
+    else{
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
 - (void)startTimer
 {
     if (!_jsonrpcServer) {
@@ -37,7 +57,11 @@ UITableViewDataSource
     if (_timer && !_timer.valid) {
         [_timer fire];
     } else {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(refreshData) userInfo:nil repeats:YES];
+        @weakify(self);
+        _timer = [NSTimer scheduledTimerWithTimeInterval:2.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            @strongify(self);
+            [self refreshData];
+        }];
     }
 }
 
@@ -47,10 +71,22 @@ UITableViewDataSource
     _timer = nil;
 }
 
-- (void)refreshData
-{
-
+- (void)refreshData{
+    if (self.jsonrpcServer) {
+        [self.viewModel requestFileTasksWithServer:self.jsonrpcServer];
+    }
+    else{
+        [self.viewModel cleanUp];
+    }
 }
+
+- (void)requestFileTasksSuccess:(BOOL)success withMessage:(NSString *)message
+{
+    if (!success) {
+        [MsgUtils showMsg:message];
+    }
+}
+
 
 - (UITableView *)tableView
 {
@@ -60,8 +96,6 @@ UITableViewDataSource
         _tableView.delegate = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.view addSubview:_tableView];
-
-        _tableView.backgroundColor = ymBackgroudColor;
         [_tableView registerClass:[ALFileDownloadViewCell class] forCellReuseIdentifier:@"FileCellText"];
     }
     return _tableView;
@@ -69,18 +103,18 @@ UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ALFileDownloadViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FileCellText" forIndexPath:indexPath];
-    TaskInfo *act = _fileList[indexPath.row];
+    TaskInfo *act = self.viewModel.fileTasks[indexPath.row];
     cell.active = act;
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.fileList.count;
+    return self.viewModel.fileTasks.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TaskInfo *taskInfo = self.fileList[indexPath.row];
+    TaskInfo *taskInfo = self.viewModel.fileTasks[indexPath.row];
     FileInfoViewController *vc = [FileInfoViewController new];
     vc.gid = taskInfo.gid;
     vc.rpcUri = _jsonrpcServer.uri;
@@ -90,7 +124,7 @@ UITableViewDataSource
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction *_Nonnull action, NSIndexPath *_Nonnull indexPath) {
-        TaskInfo *taskInfo = self.fileList[indexPath.row];
+        TaskInfo *taskInfo = self.viewModel.fileTasks[indexPath.row];
         [self removeTask:taskInfo];
     }];
     deleteRowAction.backgroundColor = [UIColor redColor];

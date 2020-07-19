@@ -10,12 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @class ALServersController;
-@class JsonrpcServer;
+@class ALJsonrpcServer;
 
 @protocol ALServersControllerDelegate <NSObject>
 
-- (void)serversController:(ALServersController *)controller didSelectServer:(JsonrpcServer *)server;
-- (void)serversController:(ALServersController *)controller didDeleteServer:(JsonrpcServer *)server;
+- (void)serversController:(ALServersController *)controller didSelectServer:(ALJsonrpcServer *)server;
+- (void)serversController:(ALServersController *)controller didDeleteServer:(ALJsonrpcServer *)server;
 
 @end
 

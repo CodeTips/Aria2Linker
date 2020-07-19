@@ -9,7 +9,7 @@
 #import "ALAddServerController.h"
 #import "ALTextField.h"
 #import "UIButton+Bootstrap.h"
-#import "JsonrpcServer.h"
+#import "ALJsonrpcServer.h"
 #import "APIUtils.h"
 
 @interface ALAddServerController ()
@@ -60,7 +60,7 @@
 
 - (void)buttonAction:(id)sender
 {
-    JsonrpcServer *jrs = [JsonrpcServer new];
+    ALJsonrpcServer *jrs = [ALJsonrpcServer new];
     jrs.name = self.serverName.text;
     jrs.uri = self.serverAddress.text;
     jrs.secret = self.serverPassword.text;

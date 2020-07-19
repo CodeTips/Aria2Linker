@@ -1,5 +1,5 @@
 //
-//  JsonrpcServer.h
+//  ALJsonrpcServer.h
 //  Aria2-client-iOS
 //
 //  Created by zj14 on 2019/2/24.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JsonrpcServer : NSObject
+@interface ALJsonrpcServer : NSObject
 @property (strong, nonatomic) NSString *uri;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *secret;

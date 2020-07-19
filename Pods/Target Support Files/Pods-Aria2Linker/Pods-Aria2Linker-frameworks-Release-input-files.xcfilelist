@@ -6,5 +6,5 @@ ${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
 ${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework
 ${BUILT_PRODUCTS_DIR}/TYAlertController/TYAlertController.framework
 ${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework
-${BUILT_PRODUCTS_DIR}/YLProgressBar/YLProgressBar.framework
 ${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework
+${BUILT_PRODUCTS_DIR}/ZZCircleProgress/ZZCircleProgress.framework

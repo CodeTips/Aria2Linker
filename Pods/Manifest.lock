@@ -20,8 +20,8 @@ PODS:
   - TPKeyboardAvoiding (1.2.4)
   - TYAlertController (1.2.0)
   - "UITextView+Placeholder (1.4.0)"
-  - YLProgressBar (3.11.0)
   - YYModel (1.0.4)
+  - ZZCircleProgress (0.2.1)
 
 DEPENDENCIES:
   - AFNetworking
@@ -31,8 +31,8 @@ DEPENDENCIES:
   - TPKeyboardAvoiding (= 1.2.4)
   - TYAlertController
   - "UITextView+Placeholder (~> 1.2)"
-  - YLProgressBar (~> 3.11.0)
   - YYModel
+  - ZZCircleProgress (~> 0.2.1)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -43,8 +43,8 @@ SPEC REPOS:
     - TPKeyboardAvoiding
     - TYAlertController
     - "UITextView+Placeholder"
-    - YLProgressBar
     - YYModel
+    - ZZCircleProgress
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
@@ -54,9 +54,9 @@ SPEC CHECKSUMS:
   TPKeyboardAvoiding: 0a40dfbb0af7c8bdae1dd457496dccfd217d85f6
   TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
-  YLProgressBar: 0c0796a6e9b5e5d5040d15c8911e802b67ccb939
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+  ZZCircleProgress: bda14bac390f6c96efcb72f7617bef66c7f2d2d0
 
-PODFILE CHECKSUM: dd976e16d13c8a6d8182046a14c1c8f8712a03b0
+PODFILE CHECKSUM: 86e28caa6b3002d529dbf53d06bc0a69f10f2666
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

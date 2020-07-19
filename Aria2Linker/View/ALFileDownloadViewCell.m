@@ -7,21 +7,28 @@
 //
 
 #import "ALFileDownloadViewCell.h"
-#import "YLProgressBar.h"
+#import "ZZCircleProgress.h"
 
 @interface ALFileDownloadViewCell ()
 
-@property (strong, nonatomic) UILabel *nameT, *sizeT, *remainingT, *speedT;
-@property (strong, nonatomic) YLProgressBar *processView;
+@property (strong, nonatomic) UILabel *nameT, *sizeT, *speedT;
+@property (strong, nonatomic) ZZCircleProgress *processView;
+@property (strong, nonatomic) UIButton *startButton;
 
 @end
 
 @implementation ALFileDownloadViewCell
 
+- (void)dealloc
+{
+    [self removeObservers];
+}
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = ymColorWhite;
+        @weakify(self);
         if (!_nameT) {
             _nameT = [UILabel new];
             [_nameT setText:@" "];
@@ -30,8 +37,9 @@
             _nameT.font = [UIFont systemFontOfSize:ymFontSizeBigger];
             [_nameT setTextColor:ymContentPrimaryTextColor];
             [_nameT mas_makeConstraints:^(MASConstraintMaker *make) {
+                @strongify(self);
                 make.left.equalTo(self.contentView).offset(ymScreen_left_padding);
-                make.right.equalTo(self.contentView).offset(ymScreen_right_padding);
+                make.right.equalTo(self.contentView).offset(ymScreen_right_padding * 2 - 30);
                 make.top.equalTo(self.contentView).offset(ymScreen_top_padding);
             }];
         }
@@ -41,51 +49,28 @@
             _sizeT = [UILabel new];
             [_sizeT setText:@"无"];
             [self.contentView addSubview:_sizeT];
-            _sizeT.font = [UIFont systemFontOfSize:ymFontSizeNormal];
+            _sizeT.font = [UIFont systemFontOfSize:ymFontSizeSmallest];
             [_sizeT setTextColor:ymLabelColor];
             [_sizeT mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(_nameT);
-                make.top.equalTo(_nameT.mas_baseline).offset(ymScreen_top_padding / 3);
-            }];
-        }
-
-        if (!_processView) {
-            _processView = [YLProgressBar new];
-            _processView.progress = 0;
-            [self.contentView addSubview:_processView];
-            _processView.trackTintColor = ymColorBlueDark;
-            _processView.type = YLProgressBarTypeRounded;
-//            _processView.indicatorTextDisplayMode = YLProgressBarIndicatorTextDisplayModeFixedRight;
-            _processView.behavior = YLProgressBarBehaviorIndeterminate;
-            _processView.stripesOrientation = YLProgressBarStripesOrientationVertical;
-            [_processView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.right.equalTo(_nameT);
-                make.top.equalTo(_sizeT.mas_bottom).offset(ymScreen_top_padding);
-                make.height.equalTo(@6);
+                @strongify(self);
+                make.left.equalTo(self.nameT);
+                make.width.mas_equalTo(self.contentView.width / 2);
+                make.top.equalTo(self.nameT.mas_baseline).offset(ymScreen_top_padding);
             }];
         }
 
         if (!_speedT) {
             _speedT = [UILabel new];
+            _speedT.textAlignment = NSTextAlignmentRight;
             _speedT.text = @" ";
             [self.contentView addSubview:_speedT];
-            _speedT.font = [UIFont systemFontOfSize:ymFontSizeNormal];
+            _speedT.font = [UIFont systemFontOfSize:ymFontSizeSmallest];
             [_speedT setTextColor:ymContentPrimaryTextColor];
             [_speedT mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(_nameT);
-                make.top.equalTo(_processView.mas_bottom).offset(ymScreen_top_padding / 2);
-            }];
-        }
-
-        if (!_remainingT) {
-            _remainingT = [UILabel new];
-            _remainingT.text = @" ";
-            [self.contentView addSubview:_remainingT];
-            _remainingT.font = [UIFont systemFontOfSize:ymFontSizeNormal];
-            [_remainingT setTextColor:ymContentPrimaryTextColor];
-            [_remainingT mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.right.equalTo(self.contentView).offset(ymScreen_right_padding);
-                make.top.equalTo(_processView.mas_bottom).offset(ymScreen_top_padding / 2);
+                @strongify(self);
+                make.right.equalTo(self.nameT);
+                make.width.mas_equalTo(self.contentView.width / 2);
+                make.centerY.equalTo(self.sizeT);
             }];
         }
 
@@ -94,38 +79,82 @@
         v.backgroundColor = ymColorIngoreGrayLight;
         [v mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.contentView);
-            make.height.equalTo(@2);
-            make.top.equalTo(_remainingT.mas_bottom).offset(ymScreen_top_padding);
+            make.height.equalTo(@1);
+            @strongify(self);
+            make.top.equalTo(self.sizeT.mas_bottom).offset(ymScreen_top_padding);
             make.bottom.equalTo(self.contentView);
         }];
+        
+        if (!_processView) {
+            _processView = [[ZZCircleProgress alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+            _processView.progress = 0;
+            _processView.startAngle = -90;
+            _processView.showPoint = NO;
+            _processView.strokeWidth = 2;
+            _processView.duration = 0;
+            _processView.pathFillColor = ymColorBlueDark;
+            _processView.pathBackColor = ymColorIngoreGrayLight;
+            _processView.showProgressText = NO;
+            _processView.increaseFromLast = YES;
+            [self.contentView addSubview:_processView];
+            [_processView mas_makeConstraints:^(MASConstraintMaker *make) {
+                @strongify(self);
+                make.left.equalTo(self.nameT.mas_right).offset(ymScreen_padding_default);
+                make.centerY.equalTo(self.nameT).offset(-(self.sizeT.height + 2 * ymScreen_top_padding)/ 2);
+            }];
+        }
     }
 
-    //    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 
     return self;
 }
 
 - (void)setActive:(TaskInfo *)taskInfo {
+    if (_active != taskInfo) {
+        [self removeObservers];
+        _active = taskInfo;
+        _processView.progress = 0;
+        [self addObservers];
+    }
+    
     NSString *filePath = [taskInfo.files[0].path lastPathComponent];
     NSString *uriPath = [taskInfo.files[0].uris count] > 0 ? [taskInfo.files[0].uris[0].uri lastPathComponent] : @"";
     _nameT.text = [CommonUtils stringIsNull:filePath] ? uriPath : filePath;
     _sizeT.text = [CommonUtils changeKMGB:taskInfo.totalLength];
-    [_processView setProgress:taskInfo.totalLength == 0 ? 0 : (float) taskInfo.completedLength / taskInfo.totalLength
-                     animated:NO];
+    _speedT.text = @" ";
+}
 
-    if ([taskInfo.status isEqualToString:@"active"]) {
-        _speedT.text = [NSString stringWithFormat:@"%@/s", [CommonUtils changeKMGB:taskInfo.downloadSpeed]];
-        _remainingT.text = [CommonUtils
-            changeTimeFormat:taskInfo.downloadSpeed == 0
-                                 ? 0
-                                 : (taskInfo.totalLength - taskInfo.completedLength) / taskInfo.downloadSpeed];
-    } else if ([taskInfo.status isEqualToString:@"paused"]) {
-        _speedT.text = @" ";
-        _remainingT.text = @"已暂停";
-    } else {
-        _speedT.text = @"";
-        _remainingT.text = @"";
+- (void)addObservers
+{
+    [_active addObserver:self forKeyPath:@"completedLength" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:NULL];
+    [_active addObserver:self forKeyPath:@"downloadSpeed" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:NULL];
+    [_active addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:NULL];
+}
+
+- (void)removeObservers
+{
+    [_active removeObserver:self forKeyPath:@"completedLength"];
+    [_active removeObserver:self forKeyPath:@"downloadSpeed"];
+    [_active removeObserver:self forKeyPath:@"status"];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"completedLength"]) {
+        [_processView setProgress:_active.totalLength == 0 ? 0 : (float) _active.completedLength / _active.totalLength];
+    }
+    else if([keyPath isEqualToString:@"downloadSpeed"]){
+        _speedT.text = [NSString stringWithFormat:@"%@/s", [CommonUtils changeKMGB:_active.downloadSpeed]];
+    }
+    else if([keyPath isEqualToString:@"status"]){
+        if ([_active.status isEqualToString:@"paused"]) {
+            _speedT.text = @" ";
+        }
+    }
+    else{
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
+
 @end

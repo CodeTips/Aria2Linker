@@ -7,7 +7,7 @@
 //
 
 #import "LocalCacheUtils.h"
-#import "JsonrpcServer.h"
+#import "ALJsonrpcServer.h"
 
 @interface LocalCacheUtils ()
 
@@ -64,7 +64,7 @@
 }
 
 - (NSArray *)getJsonrpcArray {
-    return  [NSArray yy_modelArrayWithClass:[JsonrpcServer class] json:[_userDefaults objectForKey:JSONRPCKey]];
+    return  [NSArray yy_modelArrayWithClass:[ALJsonrpcServer class] json:[_userDefaults objectForKey:JSONRPCKey]];
 }
 
 - (void)setDefaultJsonrpc:(id)jsonrpc
@@ -74,6 +74,6 @@
 }
 - (id)getDefaultJsonrpc
 {
-    return  [JsonrpcServer yy_modelWithJSON:[_userDefaults objectForKey:DefaultJSONRPCKey]];
+    return  [ALJsonrpcServer yy_modelWithJSON:[_userDefaults objectForKey:DefaultJSONRPCKey]];
 }
 @end
