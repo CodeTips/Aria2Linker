@@ -53,16 +53,12 @@ typedef NS_ENUM(NSInteger, FileInfoVCCell) {
 }
 
 - (void)fresh {
-    [APIUtils statusByGid:_gid
-        rpcUri:_rpcUri
-     rpcPasswd:_secret
-        success:^(TaskInfo *taskInfo) {
-            _taskInfo = taskInfo;
-            [_myTableView reloadData];
-        }
-        failure:^(NSString *msg) {
-            [MsgUtils showMsg:[NSString stringWithFormat:@"获取文件状态失败:%@", msg]];
-        }];
+    [APIUtils statusByGid:_gid rpcUri:_rpcUri rpcPasswd:_secret success:^(TaskInfo *taskInfo) {
+        self.taskInfo = taskInfo;
+        [self.myTableView reloadData];
+    }failure:^(NSString *msg) {
+        [MsgUtils showMsg:[NSString stringWithFormat:@"获取文件状态失败:%@", msg]];
+    }];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -119,7 +115,7 @@ typedef NS_ENUM(NSInteger, FileInfoVCCell) {
                                                       style:UIAlertActionStyleDefault
                                                     handler:^(UIAlertAction *_Nonnull action) {
                                                         [UIPasteboard generalPasteboard].string =
-                                                            _taskInfo.files[0].uris[0].uri;
+                                                        self.taskInfo.files[0].uris[0].uri;
                                                         [MsgUtils showMsg:@"已复制到剪切板"];
                                                     }]];
 

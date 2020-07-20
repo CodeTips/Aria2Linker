@@ -10,12 +10,13 @@
 		5E72C4C824C46245001AA296 /* ALFileListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E72C4C724C46245001AA296 /* ALFileListViewModel.m */; };
 		5E72C4CB24C4625F001AA296 /* ALActiveListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E72C4CA24C4625F001AA296 /* ALActiveListViewModel.m */; };
 		5E72C4CE24C4627F001AA296 /* ALStopListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E72C4CD24C4627F001AA296 /* ALStopListViewModel.m */; };
+		AE1AC40624C53FD800FA7FF4 /* ALPrivacyController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC40524C53FD800FA7FF4 /* ALPrivacyController.m */; };
+		AE1AC40924C5655300FA7FF4 /* Holmes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1AC40724C5654E00FA7FF4 /* Holmes.framework */; };
+		AE1AC40A24C5655300FA7FF4 /* Holmes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE1AC40724C5654E00FA7FF4 /* Holmes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE3D02AF2472780600387263 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3D02AE2472780600387263 /* AppDelegate.m */; };
 		AE3D02BA2472780600387263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3D02B92472780600387263 /* Assets.xcassets */; };
 		AE3D02BD2472780600387263 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3D02BB2472780600387263 /* LaunchScreen.storyboard */; };
 		AE3D02C02472780600387263 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3D02BF2472780600387263 /* main.m */; };
-		AE696FD924BC7114004723DA /* HolmesWithIDFA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE696FD724BC7077004723DA /* HolmesWithIDFA.framework */; };
-		AE696FDA24BC7114004723DA /* HolmesWithIDFA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE696FD724BC7077004723DA /* HolmesWithIDFA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE7277E324C195B6006020A7 /* ALServersController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7277E224C195B6006020A7 /* ALServersController.m */; };
 		AE7277E624C1962C006020A7 /* ALStopListController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7277E524C1962C006020A7 /* ALStopListController.m */; };
 		AE7277E924C1B31C006020A7 /* ALAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7277E824C1B31C006020A7 /* ALAboutViewController.m */; };
@@ -54,7 +55,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AE696FDA24BC7114004723DA /* HolmesWithIDFA.framework in Embed Frameworks */,
+				AE1AC40A24C5655300FA7FF4 /* Holmes.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +72,9 @@
 		5E72C4CC24C4627F001AA296 /* ALStopListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALStopListViewModel.h; sourceTree = "<group>"; };
 		5E72C4CD24C4627F001AA296 /* ALStopListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALStopListViewModel.m; sourceTree = "<group>"; };
 		7C330483A02B016A3C10D804 /* Pods-Aria2Linker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aria2Linker.release.xcconfig"; path = "Target Support Files/Pods-Aria2Linker/Pods-Aria2Linker.release.xcconfig"; sourceTree = "<group>"; };
+		AE1AC40424C53FD800FA7FF4 /* ALPrivacyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALPrivacyController.h; sourceTree = "<group>"; };
+		AE1AC40524C53FD800FA7FF4 /* ALPrivacyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALPrivacyController.m; sourceTree = "<group>"; };
+		AE1AC40724C5654E00FA7FF4 /* Holmes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Holmes.framework; sourceTree = "<group>"; };
 		AE3D02AA2472780600387263 /* Aria2Linker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aria2Linker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3D02AD2472780600387263 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AE3D02AE2472780600387263 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -79,7 +83,6 @@
 		AE3D02BE2472780600387263 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE3D02BF2472780600387263 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AE696FD624BC6F00004723DA /* Aria2Linker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Aria2Linker.entitlements; sourceTree = "<group>"; };
-		AE696FD724BC7077004723DA /* HolmesWithIDFA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HolmesWithIDFA.framework; sourceTree = "<group>"; };
 		AE7277E124C195B6006020A7 /* ALServersController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALServersController.h; sourceTree = "<group>"; };
 		AE7277E224C195B6006020A7 /* ALServersController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALServersController.m; sourceTree = "<group>"; };
 		AE7277E424C1962C006020A7 /* ALStopListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALStopListController.h; sourceTree = "<group>"; };
@@ -145,7 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE696FD924BC7114004723DA /* HolmesWithIDFA.framework in Frameworks */,
+				AE1AC40924C5655300FA7FF4 /* Holmes.framework in Frameworks */,
 				F7CC0464CC96D17C5922EB8E /* Pods_Aria2Linker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,7 +168,7 @@
 		347BC714AB0E6E2BF33AD558 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AE696FD724BC7077004723DA /* HolmesWithIDFA.framework */,
+				AE1AC40724C5654E00FA7FF4 /* Holmes.framework */,
 				04236CB2D29A346F1B15CC52 /* Pods_Aria2Linker.framework */,
 			);
 			name = Frameworks;
@@ -272,6 +275,8 @@
 				AE7277E224C195B6006020A7 /* ALServersController.m */,
 				AE7277E724C1B31C006020A7 /* ALAboutViewController.h */,
 				AE7277E824C1B31C006020A7 /* ALAboutViewController.m */,
+				AE1AC40424C53FD800FA7FF4 /* ALPrivacyController.h */,
+				AE1AC40524C53FD800FA7FF4 /* ALPrivacyController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -478,6 +483,7 @@
 				AE3D02C02472780600387263 /* main.m in Sources */,
 				AEA8ED7B24BD4A3800CF98F9 /* FileInfoViewController.m in Sources */,
 				AEA8ED8524BD4A7300CF98F9 /* ButtonCell.m in Sources */,
+				AE1AC40624C53FD800FA7FF4 /* ALPrivacyController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <HolmesWithIDFA/Holmes.h>
+#import <Holmes/Holmes.h>
 #import "ALActiveListController.h"
 #import "BaseNavigationController.h"
 

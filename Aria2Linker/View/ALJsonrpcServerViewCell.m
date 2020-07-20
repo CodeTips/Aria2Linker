@@ -20,6 +20,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = ymColorWhite;
+        @weakify(self);
         if (!_nameT) {
             _nameT = [UILabel new];
             [_nameT setText:@" "];
@@ -42,8 +43,9 @@
             _uriT.font = [UIFont systemFontOfSize:ymFontSizeNormal];
             [_uriT setTextColor:ymLabelColor];
             [_uriT mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(_nameT);
-                make.top.equalTo(_nameT.mas_baseline).offset(ymScreen_top_padding / 3);
+                @strongify(self);
+                make.left.equalTo(self.nameT);
+                make.top.equalTo(self.nameT.mas_baseline).offset(ymScreen_top_padding / 3);
             }];
         }
 
@@ -51,11 +53,12 @@
             _statT = [UILabel new];
             _statT.text = @"获取中...";
             [self.contentView addSubview:_statT];
-            _statT.font = [UIFont systemFontOfSize:ymFontSizeNormal];
+            _statT.font = [UIFont systemFontOfSize:ymFontSizeSmallest];
             [_statT setTextColor:ymContentPrimaryTextColor];
             [_statT mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(_nameT);
-                make.top.equalTo(_uriT.mas_bottom).offset(ymScreen_top_padding);
+                @strongify(self);
+                make.left.equalTo(self.nameT);
+                make.top.equalTo(self.uriT.mas_bottom).offset(ymScreen_top_padding);
             }];
         }
 
@@ -63,11 +66,12 @@
             _speedT = [UILabel new];
             _speedT.text = @"获取中...";
             [self.contentView addSubview:_speedT];
-            _speedT.font = [UIFont systemFontOfSize:ymFontSizeNormal];
+            _speedT.font = [UIFont systemFontOfSize:ymFontSizeSmallest];
             [_speedT setTextColor:ymContentPrimaryTextColor];
             [_speedT mas_makeConstraints:^(MASConstraintMaker *make) {
+                @strongify(self);
                 make.right.equalTo(self.contentView).offset(ymScreen_right_padding);
-                make.top.equalTo(_uriT.mas_bottom).offset(ymScreen_top_padding);
+                make.top.equalTo(self.uriT.mas_bottom).offset(ymScreen_top_padding);
             }];
         }
 
@@ -75,9 +79,10 @@
         [self.contentView addSubview:v];
         v.backgroundColor = ymColorIngoreGrayLight;
         [v mas_makeConstraints:^(MASConstraintMaker *make) {
+            @strongify(self);
             make.left.right.equalTo(self.contentView);
-            make.height.equalTo(@2);
-            make.top.equalTo(_statT.mas_bottom).offset(ymScreen_top_padding);
+            make.height.equalTo(@0.5);
+            make.top.equalTo(self.statT.mas_bottom).offset(ymScreen_top_padding);
             make.bottom.equalTo(self.contentView);
         }];
     }
@@ -95,8 +100,8 @@
 - (void)setStat:(GlobalStatus *)stat {
     if (stat) {
         _statT.text = [NSString
-            stringWithFormat:@"🔽%ld ⏸️%ld ⏹%ld", stat.numActive, stat.numWaiting, stat.numStopped];
-        _speedT.text = [NSString stringWithFormat:@"⏬%@/s ⏫%@/s", [CommonUtils changeKMGB:stat.downloadSpeed],
+            stringWithFormat:@"下载中:%ld 已暂停:%ld 已终止:%ld", stat.numActive, stat.numWaiting, stat.numStopped];
+        _speedT.text = [NSString stringWithFormat:@"下行:%@/s 上行:%@/s", [CommonUtils changeKMGB:stat.downloadSpeed],
                                                   [CommonUtils changeKMGB:stat.uploadSpeed]];
     } else {
         [self setOfflineStat];

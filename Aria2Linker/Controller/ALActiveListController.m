@@ -27,7 +27,8 @@ UIPopoverPresentationControllerDelegate,
 ALPopMenuControllerDelegate,
 ALAddServerControllerDelegate,
 ALServersControllerDelegate,
-ALFileListViewModelDelegate
+ALFileListViewModelDelegate,
+ALFileDownloadViewCellDelegate
 >
 @end
 
@@ -213,6 +214,16 @@ ALFileListViewModelDelegate
     [APIUtils removeByGid:taskInfo.gid rpcUri:self.jsonrpcServer.uri rpcPasswd:self.jsonrpcServer.secret success:^(NSString *okmsg) {
         [MsgUtils showMsg:@"已删除下载任务"];
     }failure:nil];
+}
+
+- (void)downloadActionForTask:(TaskInfo *)task
+{
+    if ([task.status isEqualToString:@"paused"]) {
+        [self resumeTask:task];
+    }
+    else if([task.status isEqualToString:@"active"]){
+        [self pauseTask:task];
+    }
 }
 
 - (void)pauseTask:(TaskInfo *)taskInfo

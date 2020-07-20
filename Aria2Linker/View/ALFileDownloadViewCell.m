@@ -79,7 +79,7 @@
         v.backgroundColor = ymColorIngoreGrayLight;
         [v mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.contentView);
-            make.height.equalTo(@1);
+            make.height.equalTo(@0.5);
             @strongify(self);
             make.top.equalTo(self.sizeT.mas_bottom).offset(ymScreen_top_padding);
             make.bottom.equalTo(self.contentView);
@@ -126,7 +126,9 @@
 
 - (void)startButtonAction:(id)sender
 {
-    
+    if ([self.delegate respondsToSelector:@selector(downloadActionForTask:)]) {
+        [self.delegate downloadActionForTask:self.active];
+    }
 }
 
 - (void)setActive:(TaskInfo *)taskInfo {
@@ -171,8 +173,15 @@
             _speedT.text = @" ";
             [_startButton setImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
         }
-        else{
+        else if([_active.status isEqualToString:@"active"]){
             [_startButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+        }
+        else{
+            _speedT.text = @" ";
+            _startButton.hidden = YES;
+            [_nameT mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(self.contentView).offset(ymScreen_right_padding);
+            }];
         }
     }
     else{

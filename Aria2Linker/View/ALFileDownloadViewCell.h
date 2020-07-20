@@ -11,8 +11,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol ALFileDownloadViewCellDelegate <NSObject>
+
+- (void)downloadActionForTask:(TaskInfo *)task;
+
+@end
+
 @interface ALFileDownloadViewCell : UITableViewCell
 
+@property (weak, nonatomic) id <ALFileDownloadViewCellDelegate> delegate;
 @property (strong, nonatomic) TaskInfo *active;
 
 @end

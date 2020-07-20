@@ -103,6 +103,7 @@ UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ALFileDownloadViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FileCellText" forIndexPath:indexPath];
+    cell.delegate = (id)self;
     TaskInfo *act = self.viewModel.fileTasks[indexPath.row];
     cell.active = act;
     return cell;

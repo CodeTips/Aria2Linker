@@ -1,0 +1,6 @@
+framework module Holmes {
+  umbrella header "Holmes.h"
+
+  export *
+  module * { export * }
+}
