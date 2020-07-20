@@ -82,7 +82,11 @@ UITableViewDataSource
 
 - (void)requestFileTasksSuccess:(BOOL)success withMessage:(NSString *)message
 {
-    if (!success) {
+    if (success) {
+        if (!self.viewModel.taskCount) {
+            [self showDefaultViewWithMessage:@"没有下载中的任务"];
+        }
+    }else{
         [MsgUtils showMsg:message];
     }
 }

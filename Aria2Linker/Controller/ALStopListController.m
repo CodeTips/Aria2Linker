@@ -37,7 +37,7 @@
         [self startTimer];
     }
     else{
-        [self showDefaultViewWithMessage:@"没有完成/停止的文件"];
+        [self showDefaultViewWithMessage:@"没有已完成/已停止的任务"];
     }
 }
 

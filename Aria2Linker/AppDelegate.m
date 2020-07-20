@@ -26,7 +26,7 @@
     self.window.rootViewController = navOverView;
     [self.window makeKeyAndVisible];
     
-    [Holmes init:@{@"appkey": @"appkey", @"channel" : @"AppleStore"}];
+    [Holmes init:@{@"appkey": @"Aria2Linker", @"channel" : @"AppleStore"}];
 
     return YES;
 }
